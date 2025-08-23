@@ -1,0 +1,248 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Search Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+    button {
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Search Data by Voice</h2>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Type or speak to search...">
+    <button onclick="startVoiceSearch()">🎤</button>
+  </div>
+
+  <table id="dataTable">
+    <thead>
+      <tr><th>Name</th><th>Category</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Apple</td><td>Fruit</td></tr>
+      <tr><td>Carrot</td><td>Vegetable</td></tr>
+      <tr><td>Banana</td><td>Fruit</td></tr>
+      <tr><td>Broccoli</td><td>Vegetable Fruit</td></tr>
+      <tr><td>Orange Fruit</td><td>Fruit</td></tr>
+      <tr><td>Dewanand</td><td>Sharma</td></tr>
+      <tr><td>Sonu</td><td>Vishwakarma</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+
+    // Voice recognition setup
+    function startVoiceSearch() {
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        alert('Your browser does not support speech recognition.');
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        searchInput.value = transcript;
+        filterTable(transcript.toLowerCase());
+      };
+
+      recognition.onerror = function (event) {
+        alert('Speech recognition error: ' + event.error);
+      };
+    }
+
+    // Filter table based on input
+    searchInput.addEventListener('input', () => {
+      filterTable(searchInput.value.toLowerCase());
+    });
+
+    function filterTable(value) {
+      const rows = document.querySelectorAll('#dataTable tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(value) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Search for Products</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+    button {
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+    }
+    .product-card h4 {
+      margin: 10px 0 5px;
+    }
+    .product-card p {
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Search Products by Voice Dewanand </h2>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button onclick="startVoiceSearch()"><i class="bi bi-mic"></i></button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Apple">
+      <h4>Apple</h4>
+      <p>Fruit</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Carrot">
+      <h4>Carrot</h4>
+      <p>Vegetable</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Banana">
+      <h4>Banana</h4>
+      <p>Fruit</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Broccoli">
+      <h4>Broccoli</h4>
+      <p>Vegetable</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Orange.">
+      <h4>Orange.</h4>
+      <p>Fruit</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Orange">
+      <h4>Dewanand</h4>
+      <p>Sharma</p>
+    </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/150" alt="Orange">
+      <h4>akhilesh</h4>
+      <p>Kushvaha</p>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+
+    function startVoiceSearch() {
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        alert('Your browser does not support speech recognition.');
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        searchInput.value = transcript;
+        filterProducts(transcript.toLowerCase());
+      };
+
+      recognition.onerror = function (event) {
+        alert('Speech recognition error: ' + event.error);
+      };
+    }
+
+    // Filter product cards
+    searchInput.addEventListener('input', () => {
+      filterProducts(searchInput.value.toLowerCase());
+    });
+
+    function filterProducts(value) {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const text = product.textContent.toLowerCase();
+        product.style.display = text.includes(value) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+
+</html>

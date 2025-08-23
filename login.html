@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+   <link href="assets/img/AIT.png" rel="icon">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+.login-container {
+  text-align: center; /* This centers inline elements like <img> */
+}
+
+.login-container img {
+  width: 100px;
+  height: 60px;
+}
+
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      /* background: linear-gradient(135deg, #4e54c8, #8f94fb); */
+      background: #0A1F3D;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e54c8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-container button:hover {
+      background-color: #3b40a4;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- <h2 style="font-size: 60px;">Login In</h2> -->
+     <img src="assets/img/AIT.png" />
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="Username" autocomplete="off" required />
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password" autocomplete="off" required />
+        <span class="toggle-password" onclick="togglePassword()">Show</span>
+      </div>
+      <button type="submit">Login In</button>
+      <div class="error" id="errorMsg"></div>
+    </form>
+  </div>
+
+
+
+  <script>
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const toggle = document.querySelector(".toggle-password");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggle.textContent = "Hide";
+    } else {
+      passwordInput.type = "password";
+      toggle.textContent = "Show";
+    }
+  }
+
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        //window.location.href = "Userlist/Usertable.html";
+        window.location.href = "dashboard/index.html";
+      } else {
+        errorMsg.textContent = result.message || "Invalid username or password.";
+      }
+    } catch (err) {
+      console.error("API Error:", err);
+      errorMsg.textContent = "Login failed. Please try again.";
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="assets/img/Ankushlogos.jpg" rel="icon">
+  <title>Admin Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    }
+    
+    .captcha-box {
+      background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+      border: 2px dashed #9ca3af;
+    }
+    
+    .login-container {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .input-focus:focus {
+      border-color: #4e54c8;
+      box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.1);
+    }
+    
+    .btn-hover:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(78, 84, 200, 0.3);
+    }
+    
+    .captcha-refresh:hover {
+      transform: rotate(180deg);
+    }
+    
+    .captcha-refresh {
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+  <div class="login-container w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 transform transition-all duration-300">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4">
+        <i class="fas fa-user-shield text-white text-2xl"></i>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800">Admin Login</h2>
+      <p class="text-gray-600 mt-2">Please sign in to your account</p>
+    </div>
+
+    <form id="loginForm" class="space-y-6">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <i class="fas fa-user text-gray-400"></i>
+        </div>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          placeholder="Username" 
+          autocomplete="off" 
+          required 
+          class="input-focus w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200"
+        />
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <i class="fas fa-lock text-gray-400"></i>
+        </div>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Password" 
+          autocomplete="off" 
+          required 
+          class="input-focus w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200"
+        />
+        <button 
+          type="button" 
+          class="absolute inset-y-0 right-0 pr-3 flex items-center"
+          onclick="togglePassword()"
+        >
+          <i id="toggleIcon" class="fas fa-eye text-gray-400 hover:text-gray-600 cursor-pointer"></i>
+        </button>
+      </div>
+
+      <div class="captcha-container">
+        <label class="block text-sm font-medium text-gray-700 mb-2">
+          <i class="fas fa-shield-alt text-blue-500 mr-2"></i>
+          Security Verification
+        </label>
+        <div class="captcha-box rounded-lg p-4 mb-3 flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <span class="text-lg font-bold text-gray-800" id="captchaQuestion"></span>
+            <span class="text-lg text-gray-600">=</span>
+            <span class="text-lg text-gray-400">?</span>
+          </div>
+          <button 
+            type="button" 
+            onclick="generateCaptcha()" 
+            class="captcha-refresh text-blue-500 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 transition-all duration-300"
+            title="Refresh CAPTCHA"
+          >
+            <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+        <input 
+          type="number" 
+          id="captchaInput" 
+          name="captchaInput" 
+          placeholder="Enter the answer" 
+          required 
+          class="input-focus w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition-all duration-200"
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-hover w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+      >
+        <i class="fas fa-sign-in-alt mr-2"></i>
+        Sign In
+      </button>
+
+      <div class="error text-red-500 text-center text-sm mt-4 hidden" id="errorMsg">
+        <i class="fas fa-exclamation-circle mr-1"></i>
+        <span id="errorText"></span>
+      </div>
+    </form>
+
+    <div class="mt-8 text-center">
+      <p class="text-xs text-gray-500">
+        <i class="fas fa-lock mr-1"></i>
+        Your login is protected by advanced security measures
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let captchaAnswer = 0;
+
+    function generateCaptcha() {
+      const num1 = Math.floor(Math.random() * 20) + 1;
+      const num2 = Math.floor(Math.random() * 20) + 1;
+      const operations = ['+', '-', '*'];
+      const operation = operations[Math.floor(Math.random() * operations.length)];
+      
+      let question, answer;
+      
+      switch(operation) {
+        case '+':
+          question = `${num1} + ${num2}`;
+          answer = num1 + num2;
+          break;
+        case '-':
+          const larger = Math.max(num1, num2);
+          const smaller = Math.min(num1, num2);
+          question = `${larger} - ${smaller}`;
+          answer = larger - smaller;
+          break;
+        case '*':
+
+          const smallNum1 = Math.floor(Math.random() * 10) + 1;
+          const smallNum2 = Math.floor(Math.random() * 10) + 1;
+          question = `${smallNum1} × ${smallNum2}`;
+          answer = smallNum1 * smallNum2;
+          break;
+      }
+      
+      document.getElementById('captchaQuestion').textContent = question;
+      captchaAnswer = answer;
+      document.getElementById('captchaInput').value = '';
+    }
+
+    function togglePassword() {
+      const passwordInput = document.getElementById("password");
+      const toggleIcon = document.getElementById("toggleIcon");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.className = "fas fa-eye-slash text-gray-400 hover:text-gray-600 cursor-pointer";
+      } else {
+        passwordInput.type = "password";
+        toggleIcon.className = "fas fa-eye text-gray-400 hover:text-gray-600 cursor-pointer";
+      }
+    }
+
+    function showError(message) {
+      const errorMsg = document.getElementById("errorMsg");
+      const errorText = document.getElementById("errorText");
+      
+      errorText.textContent = message;
+      errorMsg.classList.remove("hidden");
+      
+      setTimeout(() => {
+        errorMsg.classList.add("hidden");
+      }, 5000);
+    }
+
+    function validateCaptcha() {
+      const userAnswer = parseInt(document.getElementById('captchaInput').value);
+      return userAnswer === captchaAnswer;
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+ 
+      if (!validateCaptcha()) {
+        showError("CAPTCHA verification failed. Please try again.");
+        generateCaptcha();
+        return;
+      }
+
+    
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Signing In...';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch("http://localhost:5000/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Success!';
+          setTimeout(() => {
+            window.location.href = "dashboard/index.html";
+          }, 1000);
+        } else {
+          showError(result.message || "Invalid username or password.");
+          generateCaptcha();
+        }
+      } catch (err) {
+        console.error("API Error:", err);
+        showError("Login failed. Please check your connection and try again.");
+        generateCaptcha();
+      } finally {
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 2000);
+      }
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      generateCaptcha();
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          this.parentElement.classList.add('transform', 'scale-105');
+        });
+        
+        input.addEventListener('blur', function() {
+          this.parentElement.classList.remove('transform', 'scale-105');
+        });
+      });
+    });
+  </script>
+</body>
+</html> -->

@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet"  href="#">
+
+    <link rel="stylesheet" type="css/type" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css">
+    <link rel="stylesheet" type="css/type" href="https://cdn.datatables.net/buttons/3.0.0/css/buttons.dataTables.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+
+    <link href="../assets/css/main.css" rel="stylesheet" />
+
+    <!-- <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        })
+    </script> -->
+
+ 
+
+
+</head>
+<body  background-color: #E8E8E8;>
+    <form id="form1" runat="server" datakeys="">
+    <h1 style=" text-align: center; ">User Client List</h1>
+        <hr />
+    <div class="container">
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ClientId</th>
+                <th>Name</th>
+            
+                <th>Mobile</th>
+
+                <th>EmailId</th>
+
+                <th>Designation</th>
+                <th>Order_Date</th>
+            </tr>
+        </thead>
+
+        <tbody runat="server" id="EmployeeData">
+
+        </tbody>   
+
+    </table>
+</div>
+
+<script>
+    function viewEmployee(employeeId) {
+        alert('View details for employee ID: ' + employeeId);
+    }
+</script>     
+  <script src="https://ajax.googleapis.com/ajax.libs/Jquery/3.5.1/Jquery.min.js"></script>
+  <script type="text/Javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/2.0.0/js/dataTables.main.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
+  <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script type="text/Javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script>
+  <script type="text/Javascript" src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script>
+ <script>
+     $(document).ready(function () {
+         document.title = "Reporting View Data ";
+         $("#example").DataTable({
+             dom: '<"dt-buttons"Bf><"clear">lirtp',
+             paging: true,
+             autoWidth: true,
+             buttons: [
+                 "copyHtml5",
+                 "csvHtml5",
+                 "excelHtml5",
+                 "pdfHtml5",
+                 "print"
+             ],
+             initComplete: function (settings, json) {
+                 $(".dt-buttons .btn-group").append(
+                     '<a id="cv" class="btn btn-primary" href="#">CARD VIEW</a>'
+                 );
+                 $("#cv").on("click", function () {
+                     if ($("#example").hasClass("card")) {
+                         $(".colHeader").remove();
+                     } else {
+                         var labels = [];
+                         $("#example thead th").each(function () {
+                             labels.push($(this).text());
+                         });
+                         $("#example tbody tr").each(function () {
+                             $(this)
+                                 .find("td")
+                                 .each(function (column) {
+                                     $("<span class='colHeader'>" + labels[column] + ":</span>").prependTo(
+                                         $(this)
+                                     );
+                                 });
+                         });
+                     }
+                     $("#example").toggleClass("card");
+                 });
+             }
+         });
+     });
+
+</script>
+
+    
+
+</form>
+</body>
+</html>

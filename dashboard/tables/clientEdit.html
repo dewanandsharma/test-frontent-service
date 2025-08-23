@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit User</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .edit-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    #editMessage {
+      max-width: 100%;
+      min-width: 100%;
+      resize: vertical;
+      /* allow vertical resizing only */
+      overflow: auto;
+      /* show scroll only when needed */
+      box-sizing: border-box;
+      /* ensures padding doesn't overflow */
+      word-break: break-word;
+      /* breaks long words */
+      border-radius: 7px;
+    }
+
+    @media (max-width: 576px) {
+      #editMessage {
+        font-size: 18px;
+        height: auto;
+      }
+    }
+
+
+    .image-preview {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .image-preview img.profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #4e54c8;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #4e54c8;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e54c8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #3b40a4;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .edit-container {
+        padding: 1rem;
+      }
+
+      .image-preview img.profile-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      button[type="submit"],
+      .form-group input {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="edit-container">
+    <div class="image-preview">
+    </div>
+    <h1 class="modal-title" id="editModalLabel">Edit Client</h1>
+
+    <form id="editForm" method="POST">
+      <div class="error" id="errorMsg"></div>
+      <input type="hidden" id="editId" />
+      <div class="form-group">
+        <label for="editName">Name</label>
+        <input type="text" class="form-control" id="editName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="editPhone">Email Id</label>
+        <input type="text" class="form-control" id="editemail" required />
+      </div>
+
+      <div class="form-group">
+        <label for="editMessage">Mobile no</label>
+        <input type="text" class="form-control" id="editmobile" required />
+      </div>
+
+      <div class="form-group">
+        <label for="editDate">Message</label>
+        <!-- <input type="" class="form-control" id="editDate" required /> -->
+        <textarea class="form-control" rows="4" id="editMessage" placeholder="Message.." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Client</button>
+    </form>
+  </div>
+
+  <!----------------API Hit GET Method inHTML page-------------------->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('id');
+
+      if (!userId) {
+        alert('❌ User ID not found in URL!');
+        return;
+      }
+
+      const editForm = document.getElementById('editForm');
+      const errorMsg = document.getElementById('errorMsg');
+      const nameInput = document.getElementById('editName');
+      const emailInput = document.getElementById('editemail');
+      const mobileInput = document.getElementById('editmobile');
+      const messageInput = document.getElementById('editMessage');
+      const idInput = document.getElementById('editId');
+
+      // ✅ Load user data by ID
+      fetch(`http://localhost:5000/api/contact/${userId}`)
+        .then(res => res.json())
+        .then(result => {
+          if (!result.success) {
+            throw new Error(result.message || 'Failed to fetch user');
+          }
+
+          const user = result.data;
+          nameInput.value = user.name || '';
+          emailInput.value = user.email || '';
+          mobileInput.value = user.mobile || '';
+          messageInput.value = user.message || '';
+          idInput.value = user.id;
+        })
+        .catch(err => {
+          errorMsg.textContent = err.message;
+          errorMsg.style.color = 'red';
+        });
+
+      // ✅ Handle form submission (PUT)
+      editForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const updatedData = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          mobile: mobileInput.value.trim(),
+          message: messageInput.value.trim(),
+        };
+
+        fetch(`http://localhost:5000/api/contact/${userId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(updatedData)
+        })
+          .then(res => res.json())
+          .then(result => {
+            if (result.success) {
+              alert("✅ Message updated successfully");
+              window.location.href = "clientcontact.html";
+            } else {
+              alert("❌ Update failed: " + (result.message || 'Unknown error'));
+            }
+          })
+          .catch(err => {
+            alert("❌ Error: " + err.message);
+          });
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>

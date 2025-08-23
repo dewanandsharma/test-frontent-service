@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit User</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .edit-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .image-preview {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .image-preview img.profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #4e54c8;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+      font-size: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #4e54c8;
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e54c8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #3b40a4;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .edit-container {
+        padding: 1rem;
+      }
+
+      .image-preview img.profile-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      button[type="submit"],
+      .form-group input {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="edit-container">
+  <div class="image-preview">
+    <img src="assets/img/default.jpg" class="profile-img" alt="Profile Image" />
+  </div>
+  <h2>Edit User</h2>
+
+  <form id="editForm" method="POST" enctype="multipart/form-data">
+    <div class="error" id="errorMsg"></div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" id="phone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="image">Profile Image:</label>
+      <input type="file" name="image" id="image" />
+    </div>
+
+    <button type="submit">Update</button>
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('id');
+
+    if (!userId) {
+      alert('❌ User ID not found in URL!');
+      return;
+    }
+
+    const editForm = document.getElementById('editForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.querySelector('.profile-img');
+
+    // Load user data
+    fetch(`http://localhost:5000/api/users`)
+      .then(res => res.json())
+      .then(users => {
+        const user = users.find(u => u.id == userId);
+        if (!user) throw new Error('User not found');
+
+        emailInput.value = user.email || '';
+        phoneInput.value = user.phone || '';
+
+        const imageFileName = user.image ? user.image.split('/').pop() : null;
+        const imageUrl = imageFileName
+          ? `http://localhost:5000/uploads/${imageFileName}`
+          : 'assets/img/default.jpg';
+        imagePreview.src = imageUrl;
+      })
+      .catch(err => {
+        console.error('Error fetching user:', err);
+        errorMsg.textContent = '❌ Failed to load user data.';
+      });
+
+    // Update image preview
+    imageInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        imagePreview.src = URL.createObjectURL(file);
+      }
+    });
+
+    // Handle submit
+    editForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(editForm);
+
+      fetch(`http://localhost:5000/api/users/${userId}`, {
+        method: 'PUT',
+        body: formData
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Update failed');
+          return res.json();
+        })
+        .then(data => {
+          alert('✅ User updated successfully!');
+        })
+        .catch(err => {
+          console.error('Error updating user:', err);
+          errorMsg.textContent = '❌ Failed to update user.';
+        });
+    });
+  });
+</script>
+
+</body>
+</html>
