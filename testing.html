@@ -1,69 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- // server.js
+require('dotenv').config();
+const express = require('express');
+const nodemailer = require('nodemailer');
+const path = require('path');
+const rateLimit = require('express-rate-limit');
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// basic rate limiting to avoid abuse
+app.use('/send', rateLimit({ windowMs: 1*60*1000, max: 10 }));
+
+app.post('/send', async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+    if (!name || !email || !message) return res.status(400).json({ error: 'Missing fields' });
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: +process.env.SMTP_PORT || 587,
+      secure: process.env.SMTP_SECURE === 'true', // true for 465
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+      }
+    });
+
+    const mail = {
+      from: `"${name}" <${email}>`,
+      to: process.env.TO_EMAIL, // your receiving email
+      subject: subject || 'New contact form message',
+      text: `From: ${name} <${email}>\n\n${message}`,
+      html: `<p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
+             <p><strong>Subject:</strong> ${subject || ''}</p>
+             <p><strong>Message:</strong></p><p>${message.replace(/\n/g,'<br>')}</p>`
+    };
+
+    await transporter.sendMail(mail);
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('Send error', err);
+    res.status(500).json({ error: 'Failed to send' });
+  }
+});
+
+// start
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, ()=>console.log(`Server listening on ${PORT}`));
+
+
+
+PORT=3000
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-smtp-username@example.com
+SMTP_PASS=your-smtp-password-or-app-password
+TO_EMAIL=your-receive-email@example.com
+
+
+
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Popup Example</title>
-  <style>
-    #popup {
-      display: none;
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -30%);
-      background-color: white;
-      padding: 20px 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      border-radius: 8px;
-      z-index: 1000;
-    }
-    #popup.show {
-      display: block;
-    }
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
-    #overlay.show {
-      display: block;
-    }
-    .close-btn {
-      margin-top: 15px;
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact</title>
 </head>
 <body>
-
-<button onclick="showPopup()">Show Offer</button>
-
-<div id="overlay"></div>
-
-<div id="popup">
-  <h3>🎉 Great News!</h3>
-  <p>Free Domain Privacy Protection Included</p>
-  <button class="close-btn" onclick="closePopup()">OK</button>
-</div>
-
+  <form id="cform">
+    <input name="name" placeholder="Your name" required><br>
+    <input name="email" type="email" placeholder="Your email" required><br>
+    <input name="subject" placeholder="Subject"><br>
+    <textarea name="message" placeholder="Message" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+  <div id="status"></div>
 <script>
-  function showPopup() {
-    document.getElementById('popup').classList.add('show');
-    document.getElementById('overlay').classList.add('show');
+const f = document.getElementById('cform'), s = document.getElementById('status');
+f.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  s.textContent = 'Sending...';
+  const data = Object.fromEntries(new FormData(f).entries());
+  try {
+    const res = await fetch('/send', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify(data)
+    });
+    const json = await res.json();
+    if (res.ok) { s.textContent = 'Message sent!'; f.reset(); }
+    else s.textContent = 'Error: ' + (json.error || 'Failed');
+  } catch (err) {
+    s.textContent = 'Network error';
   }
-
-  function closePopup() {
-    document.getElementById('popup').classList.remove('show');
-    document.getElementById('overlay').classList.remove('show');
-  }
+});
 </script>
-
 </body>
-</html>
+</html> -->

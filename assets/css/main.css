@@ -1,21 +1,38 @@
-/**
-* Template Name: Medilab
-* Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+#call-icon {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: var(--accent-color);/* White circle background */
+  color: #ffffff;             /* Golden telephone icon */
+  font-size: 24px;
+  width: 40px;                /* Circle size */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;         /* Makes it a perfect circle */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+#call-icon:hover {
+  background-color: #f9f1d0;  /* Light gold hover */
+      background: var(--accent-color);
+}
+
+
+
+
  .Write {
       text-align: center;
       align-content: center;
       margin: 5%;
 
     }
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Poppins",  sans-serif;
@@ -82,7 +99,7 @@ a:hover {
   text-decoration: none;
 }
 h1{
-  font-size: 40px;
+  font-size: 49px;
   font-weight: bold;
 }
 h2{
