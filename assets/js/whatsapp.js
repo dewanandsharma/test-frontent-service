@@ -1,6 +1,6 @@
 (function () {
   // WhatsApp number (with country code, no spaces/dashes)
-  const whatsappNumber = "+918707235841"; // Replace with your number
+  const whatsappNumber = "+91 7977114561"; // Replace with your number
 
   // Button styles
   const btnStyle = `
