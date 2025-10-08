@@ -1,7 +1,7 @@
 
 #call-icon {
   position: fixed;
-  bottom: 51px;
+  bottom: 60px;
   right: 40px;
   background: var(--accent-color);/* White circle background */
   color: #ffffff;             /* Golden telephone icon */
