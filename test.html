@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Send form to WhatsApp</title>
+</head>
+<body>
+  <form id="contactinfo">
+    <input type="text" id="name" placeholder="Enter Your Name" required><br>
+    <input type="email" id="email" placeholder="Enter Your Email" required><br>
+    <input type="text" id="mobile" placeholder="Enter 10-digit mobile number" required><br>
+    <textarea id="message" placeholder="Enter Message" required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <script>
+    document.getElementById('contactinfo').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Get values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mobile = document.getElementById('mobile').value.trim();
+      const messageText = document.getElementById('message').value.trim();
+
+      // Basic validation
+      if (!name || !email || !mobile || !messageText) {
+        alert('Please fill all fields.');
+        return;
+      }
+
+      // Validate 10-digit mobile
+      if (!/^\d{10}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number (digits only).');
+        return;
+      }
+
+      // Build WhatsApp message
+      const message = [
+        '🟢 New Contact Form Submission:',
+        '👤 Name: ' + name,
+        '📧 Email: ' + email,
+        '📞 Mobile: ' + mobile,
+        '💬 Message: ' + messageText
+      ].join('\n');
+
+      const encoded = encodeURIComponent(message);
+
+      // ✅ Admin’s WhatsApp number (without + or spaces)
+      const RECIPIENT_NUMBER = '918707235841'; // Your number here
+
+      // ✅ WhatsApp link
+      const waUrl = `https://wa.me/${RECIPIENT_NUMBER}?text=${encoded}`;
+
+      // Open WhatsApp
+      window.open(waUrl, '_blank');
+
+      // Optional: reset form
+      this.reset();
+    });
+  </script>
+</body>
+</html>
