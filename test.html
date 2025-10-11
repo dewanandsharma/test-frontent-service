@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send Form with Current Location to WhatsApp</title>
+  <title>Send Form with Live Location to WhatsApp</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 16px; }
     input, textarea { width: 100%; max-width: 420px; margin: 6px 0; padding: 8px; }
     button { padding: 8px 14px; }
-    #locationInfo { margin-top: 10px; color: green; font-weight: bold; }
+    #status { margin-top: 10px; color: green; font-weight: bold; }
     #fallback { margin-top: 12px; color: #b00; }
   </style>
 </head>
@@ -21,45 +21,19 @@
     <button type="submit">Send Message</button>
   </form>
 
-  <div id="locationInfo"></div>
+  <div id="status"></div>
   <div id="fallback" aria-live="polite"></div>
 
   <script>
     const RECIPIENT_NUMBER = '918707235841'; // your WhatsApp number
     const form = document.getElementById('contactinfo');
+    const statusDiv = document.getElementById('status');
     const fallbackDiv = document.getElementById('fallback');
-    const locationInfo = document.getElementById('locationInfo');
 
-    let locationLink = ''; // will store Google Maps link once available
-
-    // Step 1: Get user's current location when the page loads
-    function fetchCurrentLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (pos) {
-            const lat = pos.coords.latitude;
-            const lon = pos.coords.longitude;
-            locationLink = `https://www.google.com/maps?q=${lat},${lon}`;
-            locationInfo.innerHTML = `📍 Current location detected: <a href="${locationLink}" target="_blank">View on Map</a>`;
-          },
-          function (err) {
-            locationInfo.innerHTML = '⚠️ Location access denied or unavailable.';
-            locationLink = '';
-          },
-          { enableHighAccuracy: true, timeout: 10000 }
-        );
-      } else {
-        locationInfo.innerHTML = '❌ Geolocation not supported by your browser.';
-      }
-    }
-
-    // Fetch location as soon as page loads
-    fetchCurrentLocation();
-
-    // Step 2: On form submit
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       fallbackDiv.innerHTML = '';
+      statusDiv.innerHTML = '📍 Fetching current location... please wait.';
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -68,14 +42,40 @@
 
       if (!name || !email || !mobile || !messageText) {
         alert('Please fill all fields.');
+        statusDiv.innerHTML = '';
         return;
       }
 
       if (!/^\d{10}$/.test(mobile)) {
         alert('Please enter a valid 10-digit mobile number.');
+        statusDiv.innerHTML = '';
         return;
       }
 
+      // ✅ Step 1: Request live location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const locationLink = `https://www.google.com/maps?q=${lat},${lon}`;
+            statusDiv.innerHTML = '✅ Location detected successfully.';
+            sendToWhatsApp(name, email, mobile, messageText, locationLink);
+          },
+          function (error) {
+            statusDiv.innerHTML = '⚠️ Location access denied or unavailable.';
+            sendToWhatsApp(name, email, mobile, messageText, 'Not available');
+          },
+          { enableHighAccuracy: true, timeout: 10000 }
+        );
+      } else {
+        statusDiv.innerHTML = '❌ Geolocation not supported by your browser.';
+        sendToWhatsApp(name, email, mobile, messageText, 'Not available');
+      }
+    });
+
+    // ✅ Step 2: Send data to WhatsApp Web or Mobile
+    function sendToWhatsApp(name, email, mobile, messageText, locationLink) {
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       const baseUrl = isMobile
         ? 'https://wa.me'
@@ -87,7 +87,7 @@
         `📧 Email: ${email}`,
         `📞 Mobile: ${mobile}`,
         `💬 Message: ${messageText}`,
-        locationLink ? `📍 Location: ${locationLink}` : '📍 Location: Not available'
+        `📍 Location: ${locationLink}`
       ].join('\n');
 
       const encoded = encodeURIComponent(message);
@@ -95,7 +95,6 @@
         ? `${baseUrl}/${RECIPIENT_NUMBER}?text=${encoded}`
         : `${baseUrl}?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
 
-      // Try to open WhatsApp safely
       const popup = window.open('about:blank', '_blank');
       try {
         popup.location.href = waUrl;
@@ -105,7 +104,7 @@
       }
 
       form.reset();
-    });
+    }
   </script>
 </body>
 </html>
