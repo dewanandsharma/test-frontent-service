@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send Form to WhatsApp Web (works with popup blockers)</title>
+  <title>Send Form to WhatsApp Web with Live Location</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 16px; }
     input, textarea { width: 100%; max-width: 420px; margin: 6px 0; padding: 8px; }
     button { padding: 8px 14px; }
+    #locationInfo { margin-top: 10px; color: green; font-weight: bold; }
     #fallback { margin-top: 12px; color: #b00; }
   </style>
 </head>
@@ -20,16 +21,38 @@
     <button type="submit">Send Message</button>
   </form>
 
+  <div id="locationInfo"></div>
   <div id="fallback" aria-live="polite"></div>
 
   <script>
-    const RECIPIENT_NUMBER = '918707235841'; // set your number (international, no + or spaces)
+    const RECIPIENT_NUMBER = '918707235841'; // your WhatsApp number (no + or spaces)
     const form = document.getElementById('contactinfo');
     const fallbackDiv = document.getElementById('fallback');
+    const locationInfo = document.getElementById('locationInfo');
+    let currentLocationLink = '';
+
+    // Watch live location (continuously updates)
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(
+        function (position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          currentLocationLink = `https://www.google.com/maps?q=${lat},${lon}`;
+          locationInfo.innerHTML = `📍 Live location ready: <a href="${currentLocationLink}" target="_blank">View on Map</a>`;
+        },
+        function (error) {
+          locationInfo.innerHTML = '❌ Unable to fetch live location.';
+          currentLocationLink = '';
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    } else {
+      locationInfo.innerHTML = '❌ Geolocation not supported by this browser.';
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      fallbackDiv.innerHTML = ''; // clear previous fallback
+      fallbackDiv.innerHTML = '';
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -46,67 +69,31 @@
         return;
       }
 
-      // Open a blank window immediately (synchronous, counts as user gesture)
+      // Open a blank window immediately to avoid popup block
       const popup = window.open('about:blank', '_blank');
 
-      // Prepare function to build URL and open in the popup (or show fallback)
-      function openWhatsAppWeb(message) {
-        const encoded = encodeURIComponent(message);
-        const waWebUrl = `https://web.whatsapp.com/send?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
+      // Build WhatsApp message
+      const message = [
+        '🟢 New Contact Form Submission:',
+        '👤 Name: ' + name,
+        '📧 Email: ' + email,
+        '📞 Mobile: ' + mobile,
+        '💬 Message: ' + messageText,
+        (currentLocationLink ? ('📍 Live Location: ' + currentLocationLink) : '📍 Location: Not available')
+      ].join('\n');
 
-        // If popup exists and not closed, navigate it (this avoids popup blocker)
-        if (popup && !popup.closed) {
-          try {
-            popup.location.href = waWebUrl;
-            popup.focus();
-          } catch (err) {
-            // Some browsers may block assignment; show fallback link
-            showFallbackLink(waWebUrl);
-          }
-        } else {
-          // Popup was blocked or closed — show clickable fallback
-          showFallbackLink(waWebUrl);
-        }
+      const encoded = encodeURIComponent(message);
+      const waWebUrl = `https://web.whatsapp.com/send?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
+
+      // Open WhatsApp Web (popup-safe)
+      try {
+        popup.location.href = waWebUrl;
+        popup.focus();
+      } catch (err) {
+        fallbackDiv.innerHTML = `Popup blocked. <a href="${waWebUrl}" target="_blank" rel="noopener">Click here to open WhatsApp Web</a>`;
       }
 
-      function showFallbackLink(url) {
-        fallbackDiv.innerHTML = `Popup blocked or prevented. <a href="${url}" target="_blank" rel="noopener">Click here to open WhatsApp Web</a>`;
-      }
-
-      // Build message and attempt to get location
-      function buildAndSend(locationLink) {
-        const message = [
-          '🟢 New Contact Form Submission:',
-          '👤 Name: ' + name,
-          '📧 Email: ' + email,
-          '📞 Mobile: ' + mobile,
-          '💬 Message: ' + messageText,
-          (locationLink ? ('📍 Location: ' + locationLink) : '')
-        ].filter(Boolean).join('\n');
-
-        openWhatsAppWeb(message);
-        form.reset();
-      }
-
-      // Request geolocation (async) — success or error both call buildAndSend
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            const locationLink = `https://www.google.com/maps?q=${lat},${lon}`;
-            buildAndSend(locationLink);
-          },
-          function (error) {
-            // denied or failed — proceed without location
-            buildAndSend('');
-          },
-          { timeout: 10000 } // 10s timeout
-        );
-      } else {
-        // Not supported — send without location
-        buildAndSend('');
-      }
+      form.reset();
     });
   </script>
 </body>
