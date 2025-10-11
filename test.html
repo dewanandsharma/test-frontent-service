@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send Form to WhatsApp Web with Live Location Dewa</title>
+  <title>Send Form with Current Location to WhatsApp</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 16px; }
     input, textarea { width: 100%; max-width: 420px; margin: 6px 0; padding: 8px; }
@@ -25,31 +25,38 @@
   <div id="fallback" aria-live="polite"></div>
 
   <script>
-    const RECIPIENT_NUMBER = '918707235841'; // your WhatsApp number (no + or spaces)
+    const RECIPIENT_NUMBER = '918707235841'; // your WhatsApp number
     const form = document.getElementById('contactinfo');
     const fallbackDiv = document.getElementById('fallback');
     const locationInfo = document.getElementById('locationInfo');
-    let currentLocationLink = '';
 
-    // Watch live location (continuously updates)
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(
-        function (position) {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          currentLocationLink = `https://www.google.com/maps?q=${lat},${lon}`;
-          locationInfo.innerHTML = `📍 Live location ready: <a href="${currentLocationLink}" target="_blank">View on Map</a>`;
-        },
-        function (error) {
-          locationInfo.innerHTML = '❌ Unable to fetch live location.';
-          currentLocationLink = '';
-        },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-      );
-    } else {
-      locationInfo.innerHTML = '❌ Geolocation not supported by this browser.';
+    let locationLink = ''; // will store Google Maps link once available
+
+    // Step 1: Get user's current location when the page loads
+    function fetchCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (pos) {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            locationLink = `https://www.google.com/maps?q=${lat},${lon}`;
+            locationInfo.innerHTML = `📍 Current location detected: <a href="${locationLink}" target="_blank">View on Map</a>`;
+          },
+          function (err) {
+            locationInfo.innerHTML = '⚠️ Location access denied or unavailable.';
+            locationLink = '';
+          },
+          { enableHighAccuracy: true, timeout: 10000 }
+        );
+      } else {
+        locationInfo.innerHTML = '❌ Geolocation not supported by your browser.';
+      }
     }
 
+    // Fetch location as soon as page loads
+    fetchCurrentLocation();
+
+    // Step 2: On form submit
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       fallbackDiv.innerHTML = '';
@@ -69,28 +76,32 @@
         return;
       }
 
-      // Open a blank window immediately to avoid popup block
-      const popup = window.open('about:blank', '_blank');
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const baseUrl = isMobile
+        ? 'https://wa.me'
+        : 'https://web.whatsapp.com/send';
 
-      // Build WhatsApp message
       const message = [
         '🟢 New Contact Form Submission:',
-        '👤 Name: ' + name,
-        '📧 Email: ' + email,
-        '📞 Mobile: ' + mobile,
-        '💬 Message: ' + messageText,
-        (currentLocationLink ? ('📍 Live Location: ' + currentLocationLink) : '📍 Location: Not available')
+        `👤 Name: ${name}`,
+        `📧 Email: ${email}`,
+        `📞 Mobile: ${mobile}`,
+        `💬 Message: ${messageText}`,
+        locationLink ? `📍 Location: ${locationLink}` : '📍 Location: Not available'
       ].join('\n');
 
       const encoded = encodeURIComponent(message);
-      const waWebUrl = `https://web.whatsapp.com/send?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
+      const waUrl = isMobile
+        ? `${baseUrl}/${RECIPIENT_NUMBER}?text=${encoded}`
+        : `${baseUrl}?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
 
-      // Open WhatsApp Web (popup-safe)
+      // Try to open WhatsApp safely
+      const popup = window.open('about:blank', '_blank');
       try {
-        popup.location.href = waWebUrl;
+        popup.location.href = waUrl;
         popup.focus();
       } catch (err) {
-        fallbackDiv.innerHTML = `Popup blocked. <a href="${waWebUrl}" target="_blank" rel="noopener">Click here to open WhatsApp Web</a>`;
+        fallbackDiv.innerHTML = `Popup blocked. <a href="${waUrl}" target="_blank">Click here to open WhatsApp</a>`;
       }
 
       form.reset();
