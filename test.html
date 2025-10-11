@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send form to WhatsApp</title>
+  <title>Send Form to WhatsApp or SMS</title>
 </head>
 <body>
   <form id="contactinfo">
@@ -18,47 +18,75 @@
     document.getElementById('contactinfo').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Get values
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const mobile = document.getElementById('mobile').value.trim();
       const messageText = document.getElementById('message').value.trim();
 
-      // Basic validation
       if (!name || !email || !mobile || !messageText) {
         alert('Please fill all fields.');
         return;
       }
 
-      // Validate 10-digit mobile
       if (!/^\d{10}$/.test(mobile)) {
-        alert('Please enter a valid 10-digit mobile number (digits only).');
+        alert('Please enter a valid 10-digit mobile number.');
         return;
       }
 
-      // Build WhatsApp message
+      // Get user location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const locationLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+            sendMessage(name, email, mobile, messageText, locationLink);
+          },
+          function () {
+            // If user denies location access
+            alert('Could not get location. Sending message without location.');
+            sendMessage(name, email, mobile, messageText, 'Location not available');
+          }
+        );
+      } else {
+        alert('Geolocation not supported.');
+        sendMessage(name, email, mobile, messageText, 'Location not supported');
+      }
+    });
+
+    function sendMessage(name, email, mobile, messageText, location) {
       const message = [
         '🟢 New Contact Form Submission:',
         '👤 Name: ' + name,
         '📧 Email: ' + email,
         '📞 Mobile: ' + mobile,
-        '💬 Message: ' + messageText
+        '💬 Message: ' + messageText,
+        '📍 Location: ' + location
       ].join('\n');
 
       const encoded = encodeURIComponent(message);
+      const RECIPIENT_NUMBER = '918707235841'; // Replace with your WhatsApp number
 
-      // ✅ Admin’s WhatsApp number (without + or spaces)
-      const RECIPIENT_NUMBER = '918707235841'; // Your number here
-
-      // ✅ WhatsApp link
       const waUrl = `https://wa.me/${RECIPIENT_NUMBER}?text=${encoded}`;
+      const smsUrl = `sms:${RECIPIENT_NUMBER}?body=${encoded}`;
 
-      // Open WhatsApp
-      window.open(waUrl, '_blank');
+      // Check if it's a mobile device
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      // Optional: reset form
-      this.reset();
-    });
+      if (isMobile) {
+        // Try WhatsApp first, then SMS fallback
+        window.location.href = waUrl;
+        setTimeout(() => {
+          // If WhatsApp is not available, try SMS
+          window.location.href = smsUrl;
+        }, 3000);
+      } else {
+        // On desktop, just open WhatsApp Web
+        window.open(waUrl, '_blank');
+      }
+
+      document.getElementById('contactinfo').reset();
+    }
   </script>
 </body>
 </html>
