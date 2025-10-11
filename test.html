@@ -3,7 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Send Form to WhatsApp Web</title>
+  <title>Send Form to WhatsApp Web (works with popup blockers)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; }
+    input, textarea { width: 100%; max-width: 420px; margin: 6px 0; padding: 8px; }
+    button { padding: 8px 14px; }
+    #fallback { margin-top: 12px; color: #b00; }
+  </style>
 </head>
 <body>
   <form id="contactinfo">
@@ -14,9 +20,16 @@
     <button type="submit">Send Message</button>
   </form>
 
+  <div id="fallback" aria-live="polite"></div>
+
   <script>
-    document.getElementById('contactinfo').addEventListener('submit', function (e) {
+    const RECIPIENT_NUMBER = '918707235841'; // set your number (international, no + or spaces)
+    const form = document.getElementById('contactinfo');
+    const fallbackDiv = document.getElementById('fallback');
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
+      fallbackDiv.innerHTML = ''; // clear previous fallback
 
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -33,60 +46,66 @@
         return;
       }
 
-      // ✅ Get user location
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const locationLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+      // Open a blank window immediately (synchronous, counts as user gesture)
+      const popup = window.open('about:blank', '_blank');
 
-            const message = [
-              '🟢 New Contact Form Submission:',
-              '👤 Name: ' + name,
-              '📧 Email: ' + email,
-              '📞 Mobile: ' + mobile,
-              '💬 Message: ' + messageText,
-              '📍 Location: ' + locationLink
-            ].join('\n');
+      // Prepare function to build URL and open in the popup (or show fallback)
+      function openWhatsAppWeb(message) {
+        const encoded = encodeURIComponent(message);
+        const waWebUrl = `https://web.whatsapp.com/send?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
 
-            sendMessage(message);
-          },
-          function () {
-            alert('Could not get location. Sending message without location.');
-            const message = [
-              '🟢 New Contact Form Submission:',
-              '👤 Name: ' + name,
-              '📧 Email: ' + email,
-              '📞 Mobile: ' + mobile,
-              '💬 Message: ' + messageText
-            ].join('\n');
-            sendMessage(message);
+        // If popup exists and not closed, navigate it (this avoids popup blocker)
+        if (popup && !popup.closed) {
+          try {
+            popup.location.href = waWebUrl;
+            popup.focus();
+          } catch (err) {
+            // Some browsers may block assignment; show fallback link
+            showFallbackLink(waWebUrl);
           }
-        );
-      } else {
-        alert('Geolocation not supported.');
+        } else {
+          // Popup was blocked or closed — show clickable fallback
+          showFallbackLink(waWebUrl);
+        }
+      }
+
+      function showFallbackLink(url) {
+        fallbackDiv.innerHTML = `Popup blocked or prevented. <a href="${url}" target="_blank" rel="noopener">Click here to open WhatsApp Web</a>`;
+      }
+
+      // Build message and attempt to get location
+      function buildAndSend(locationLink) {
         const message = [
           '🟢 New Contact Form Submission:',
           '👤 Name: ' + name,
           '📧 Email: ' + email,
           '📞 Mobile: ' + mobile,
-          '💬 Message: ' + messageText
-        ].join('\n');
-        sendMessage(message);
+          '💬 Message: ' + messageText,
+          (locationLink ? ('📍 Location: ' + locationLink) : '')
+        ].filter(Boolean).join('\n');
+
+        openWhatsAppWeb(message);
+        form.reset();
       }
 
-      // ✅ Function to send message via WhatsApp Web only
-      function sendMessage(message) {
-        const encoded = encodeURIComponent(message);
-        const RECIPIENT_NUMBER = '918707235841'; // Your WhatsApp number
-
-        // 💻 Always open WhatsApp Web in browser
-        const waWebUrl = `https://web.whatsapp.com/send?phone=${RECIPIENT_NUMBER}&text=${encoded}`;
-
-        window.open(waWebUrl, '_blank');
-
-        document.getElementById('contactinfo').reset();
+      // Request geolocation (async) — success or error both call buildAndSend
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const locationLink = `https://www.google.com/maps?q=${lat},${lon}`;
+            buildAndSend(locationLink);
+          },
+          function (error) {
+            // denied or failed — proceed without location
+            buildAndSend('');
+          },
+          { timeout: 10000 } // 10s timeout
+        );
+      } else {
+        // Not supported — send without location
+        buildAndSend('');
       }
     });
   </script>
