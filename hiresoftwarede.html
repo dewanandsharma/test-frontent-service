@@ -474,55 +474,6 @@
 </div>
 
 
-
-  <!-- <script>
-  fetch('http://localhost:5000/api/users')
-    .then(res => res.json())
-    .then(users => {
-      const container = document.getElementById('testimonials-container');
-
-      users.forEach(user => {
-        // Ensure image is set properly from DB path
-        const imageFileName = user.image ? user.image.split('/').pop() : null;
-
-        const imageUrl = imageFileName
-          ? `http://localhost:5000/uploads/${imageFileName}`
-          : 'assets/img/default.jpg'; // fallback image
-
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide';
-
-        slide.innerHTML = `
-          <div class="testimonial-item">
-            <div class="d-flex">
-              <img src="${imageUrl}" class="testimonial-img flex-shrink-0" alt="User Image">
-              <div>
-                <h3>${user.email}</h3>
-                <h4>${user.phone}</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                </div>
-              </div>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>This is a sample testimonial for ${user.email}.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        `;
-
-        container.appendChild(slide);
-      });
-    })
-    .catch(err => {
-      console.error('Error fetching users:', err);
-    });
-</script> -->
-
-
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
