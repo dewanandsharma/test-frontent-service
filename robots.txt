@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl important pages
+Allow: /pages/
+Allow: /blog/
+Allow: /assets/
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /Userlist/
+
+# Sitemap location
+Sitemap: https://www.ankushinfotech.com/sitemap.xml

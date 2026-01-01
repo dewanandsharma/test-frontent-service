@@ -65,7 +65,7 @@
         "@type": "ContactPoint",
         "telephone": "+91-7977114561",
         "contactType": "customer service",
-        "email": "info@ankushinfotech.com",
+        "email": "contact.ankushinfotech@gmail.com",
         "areaServed": ["Mumbai", "Malad", "Kandivali", "Goregaon", "Borivali", "Thane", "Navi Mumbai", "Palghar", "Uttar Pradesh"],
         "availableLanguage": ["en", "hi"]
       }
@@ -75,6 +75,31 @@
   <meta http-equiv="Content-Language" content="en">
   <meta name="generator" content="AnkushInfotech (Custom Development)">
   <meta name="theme-color" content="#306EE0">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="revisit-after" content="7 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Mumbai">
+  <meta name="geo.position" content="19.0760;72.8777">
+  <meta name="ICBM" content="19.0760, 72.8777">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AnkushInfotech">
+  <meta name="msapplication-TileColor" content="#306EE0">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  
+  <!-- AdSense Friendly Meta Tags -->
+  <meta name="google-adsense-account" content="ca-pub-9332831795685304">
+  <meta name="google-adsense-platform-account" content="ca-host-pub-9332831795685304">
+  <meta name="ads.txt" content="/ads.txt">
+  <meta name="monetization" content="$ilp.uphold.com/your-payment-pointer">
+  <meta name="google-site-verification" content="">
+  <meta name="p:domain_verify" content="">
+  <meta name="msvalidate.01" content="">
+  <meta name="yandex-verification" content="">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -111,7 +136,7 @@
 </head>
 
 
-<body class="index-page" oncontextmenu="return false;">
+<body class="index-page">
   <!------------------------- Header Section --------------------->
   <header id="header" class="header sticky-top">
     <div class="branding d-flex align-items-center">
@@ -123,9 +148,9 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="index.html" class="active">Home<br></a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="pages/about.html">About Us</a></li>
             <!------------------------- Software services Place DropWown---------------------------------->
-            <li class="dropdown"><a href="services.html"><span>services</span> <i
+            <li class="dropdown"><a href="pages/services.html"><span>services</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
 
@@ -144,7 +169,7 @@
                     <li><a href="contact.html">Contact</a></li>
                   </ul>
                 </li> -->
-                <li><a href="services.html">More Service</a></li>
+                <li><a href="pages/services.html">More Service</a></li>
               </ul>
             </li>
             <!------------------------- Marcket Place DropWown---------------------------------->
@@ -167,17 +192,17 @@
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
             </li> -->
-            <li><a href="database.html">technologies</a></li>
-            <li><a href="portfollio.html">Portfollio</a></li>
-            <li><a href="blog.html">Bolg</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="pages/database.html">technologies</a></li>
+            <li><a href="pages/portfollio.html">Portfollio</a></li>
+            <li><a href="blog/blog.html">Blog</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
 
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="cta-btn d-none d-sm-block btn btn-outline-primary" href="login.html"><i class="bi bi-person"></i></a>
+        <a class="cta-btn d-none d-sm-block btn btn-outline-primary" href="admin/login.html"><i class="bi bi-person"></i></a>
 
       </div>
 
@@ -924,10 +949,10 @@
           <h4>Useful Links</h4>
           <ul>
             <li><a href="index.html"><i class="bi bi-chevron-double-right"></i>Home</a></li>
-            <li><a href="about.html"><i class="bi bi-chevron-double-right"></i>About Us</a></li>
-            <li><a href="portfollio.html"><i class="bi bi-chevron-double-right"></i>Portfollio</a></li>
-            <li><a href="contact.html"><i class="bi bi-chevron-double-right"></i>Contact Us</a></li>
-            <li><a href="blog.html"><i class="bi bi-chevron-double-right"></i>Blog</a></li>
+            <li><a href="pages/about.html"><i class="bi bi-chevron-double-right"></i>About Us</a></li>
+            <li><a href="pages/portfollio.html"><i class="bi bi-chevron-double-right"></i>Portfollio</a></li>
+            <li><a href="pages/contact.html"><i class="bi bi-chevron-double-right"></i>Contact Us</a></li>
+            <li><a href="blog/blog.html"><i class="bi bi-chevron-double-right"></i>Blog</a></li>
           </ul>
         </div>
 
@@ -945,11 +970,13 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>View</h4>
           <ul>
-            <li><a href="services.html"><i class="bi bi-chevron-double-right"></i>More Service</a></li>
-            <li><a href="gallery.html"><i class="bi bi-chevron-double-right"></i>Gallery</a></li>
-            <li><a href="database.html"><i class="bi bi-chevron-double-right"></i>Technologies</a></li>
+            <li><a href="pages/services.html"><i class="bi bi-chevron-double-right"></i>More Service</a></li>
+            <li><a href="pages/gallery.html"><i class="bi bi-chevron-double-right"></i>Gallery</a></li>
+            <li><a href="pages/database.html"><i class="bi bi-chevron-double-right"></i>Technologies</a></li>
             <li><a href="digitalmarket.html"><i class="bi bi-chevron-double-right"></i>Digital Marketing</a></li>
-            <li><a href="#"><i class="bi bi-chevron-double-right"></i>Privacy</a></li>
+            <li><a href="legal/privacy-policy.html"><i class="bi bi-chevron-double-right"></i>Privacy Policy</a></li>
+            <li><a href="legal/terms-of-service.html"><i class="bi bi-chevron-double-right"></i>Terms of Service</a></li>
+            <li><a href="legal/disclaimer.html"><i class="bi bi-chevron-double-right"></i>Disclaimer</a></li>
           </ul>
         </div>
 
