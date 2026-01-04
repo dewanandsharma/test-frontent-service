@@ -1,27 +1,27 @@
 
-#call-icon {
+#call-icon  {
   position: fixed;
   bottom: 60px;
-  right: 40px;
-  background: var(--accent-color);/* White circle background */
-  color: #ffffff;             /* Golden telephone icon */
+  right: 30px;
+  background: var(--accent-color);
+  color: #ffffff;             
   font-size: 24px;
-  width: 40px;                /* Circle size */
+  width: 40px;                
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;         /* Makes it a perfect circle */
+  
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   z-index: 1000;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
-#call-icon:hover {
-  background-color: #f9f1d0;  /* Light gold hover */
+/* #call-icon:hover {
+  background-color: #f9f1d0;  
       background: var(--accent-color);
-}
+} */
 
 
 

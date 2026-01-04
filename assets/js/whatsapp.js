@@ -8,12 +8,12 @@
       width: 40px;               /* Circle size */
       height: 40px;
       position: fixed;
-      bottom: 90px;
-      right: 40px;
+      bottom: 104px;
+      right: 30px;
       background-color: #25D366;
       color: white;
       border: none;
-      border-radius: 50%;
+      border-radius: 7px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       display: flex;
@@ -25,6 +25,7 @@
       background-color: #1ebe5d;
     }
     #whatsapp-connect-btn i {
+    padding: 12px;
       font-size: 24px;           /* Icon size */
       line-height: 1;
     }
