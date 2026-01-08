@@ -26,6 +26,13 @@
   color: #7f868b;
   font-weight: 500;
   white-space: nowrap;
+  border:1px solid grey;
+  padding:2px; 
+  margin:4px;
+  display:inline-block;
+  border-radius: 10px;
+  padding-left: 12px ;
+  padding-right: 12px ;
 }
 
 .ProductNav_Link.active {
