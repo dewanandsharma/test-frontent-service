@@ -1,114 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
-  <url>
-    <loc>https://www.ankushinfotech.com/</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- Main Pages -->
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/about.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/services.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/contact.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/portfollio.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/gallery.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/pages/database.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- Service Pages -->
-  <url>
-    <loc>https://www.ankushinfotech.com/hirewebsite.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/hiresoftwarede.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/hireappdeve.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/hireuiuxdeve.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/hireseo.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/digitalmarket.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Blog -->
-  <url>
-    <loc>https://www.ankushinfotech.com/blog/blog.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Legal Pages -->
-  <url>
-    <loc>https://www.ankushinfotech.com/legal/privacy-policy.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/legal/terms-of-service.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.ankushinfotech.com/legal/disclaimer.html</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://ankushinfotech.com/</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/about</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/services</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/hireuiuxdeve</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/hiresoftwarede</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/hireappdeve</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/hireseo</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/digitalmarket</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/database</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/portfollio</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/blog</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/contact</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/pages/gallery</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/best-freelancer-in-maharastra</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/legal/privacy-policy</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/legal/terms-of-service</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/legal/disclaimer</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/clinic-health-doctori-website-developers-software-development</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/freelancer-school-college-websites-designers-in-mumbai-lucknow</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/freelance-mumbai-database-management-system.html</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/freelance-it-service-provide-in-maharastra</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/it-freelancer-website-design-in-mumbai</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/it-service-freelance-mobile-application</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/malad-kandivali-freelance-softawre-developer</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/mobile-application-development</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ankushinfotech.com/blog/mumbai-maharastra-freelance</loc>
+  <lastmod>2026-01-28T17:59:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
