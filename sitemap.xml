@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
   <loc>https://ankushinfotech.com/</loc>
-  <lastmod>2026-02-04</lastmod>
   <priority>1.0</priority>
 </url>
 
@@ -19,6 +15,28 @@
   <loc>https://ankushinfotech.com/pages/services</loc>
   <priority>0.8</priority>
 </url>
+
+<url>
+  <loc>https://ankushinfotech.com/pages/database</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://ankushinfotech.com/pages/portfolio</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://ankushinfotech.com/pages/contact</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://ankushinfotech.com/blog</loc>
+  <priority>0.8</priority>
+</url>
+
+<!-- Service Pages -->
 
 <url>
   <loc>https://ankushinfotech.com/hire-ui-ux-web-design-website-developer-in-maharastra</loc>
@@ -51,38 +69,25 @@
 </url>
 
 <url>
-  <loc>https://ankushinfotech.com/pages/database</loc>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://ankushinfotech.com/pages/portfolio</loc>
+  <loc>https://ankushinfotech.com/hire-mobile-app-developer</loc>
   <priority>0.8</priority>
 </url>
 
-<url>
-  <loc>https://ankushinfotech.com/blog</loc>
-  <priority>0.7</priority>
-</url>
-
-<url>
-  <loc>https://ankushinfotech.com/pages/contact</loc>
-  <priority>0.8</priority>
-</url>
+<!-- Legal -->
 
 <url>
   <loc>https://ankushinfotech.com/legal/privacy-policy</loc>
-  <priority>0.4</priority>
+  <priority>0.5</priority>
 </url>
 
 <url>
   <loc>https://ankushinfotech.com/legal/terms-of-service</loc>
-  <priority>0.4</priority>
+  <priority>0.5</priority>
 </url>
 
 <url>
   <loc>https://ankushinfotech.com/legal/disclaimer</loc>
-  <priority>0.4</priority>
+  <priority>0.5</priority>
 </url>
 
 </urlset>
