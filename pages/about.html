@@ -1,215 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Explicitly tell search engines to index this page and follow its links. Crucial for visibility. -->
+    <meta name="robots" content="index, follow" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Explicitly tell search engines to index this page and follow its links. Crucial for visibility. -->
-  <meta name="robots" content="index, follow">
+    <title>About Ankush Infotech — Web & Software Services</title>
+    <meta
+      name="description"
+      content="Ankush Infotech provides web and software development, SEO and digital marketing in Mumbai. Hire developers, designers & SEO experts."
+    />
 
-  <title>About Ankush Infotech — Web & Software Services</title>
-<meta name="description" content="Ankush Infotech provides web and software development, SEO and digital marketing in Mumbai. Hire developers, designers & SEO experts.">
+    <!-- Keywords: Focused on "About Us" aspects (company, expertise, location) and core services. -->
+    <meta
+      name="keywords"
+      content="about AnkushInfotech, AnkushInfotech company, web design experts Mumbai, software development company Maharashtra, SEO specialists India, IT solutions Mumbai, our mission, company values, expert team, digital transformation India"
+    />
 
+    <!-- Canonical Tag: Crucial for SEO. This MUST point ONLY to the preferred URL of *THIS* page. -->
+    <link
+      rel="canonical"
+      href="https://www.ankushinfotech.com/pages/about.html"
+    />
+    <!-- Example: If your about page is at 'https://www.ankushinfotech.com/about.html', use that URL. -->
 
-  <!-- Keywords: Focused on "About Us" aspects (company, expertise, location) and core services. -->
-  <meta name="keywords"
-    content="about AnkushInfotech, AnkushInfotech company, web design experts Mumbai, software development company Maharashtra, SEO specialists India, IT solutions Mumbai, our mission, company values, expert team, digital transformation India">
+    <!-- Favicons -->
+    <link href="../assets/img/AIT.png" rel="icon" />
+    <!-- If you have an Apple Touch Icon, ensure the path is correct and uncomment. -->
+    <!-- <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
-  <!-- Canonical Tag: Crucial for SEO. This MUST point ONLY to the preferred URL of *THIS* page. -->
-  <link rel="canonical" href="https://www.ankushinfotech.com/pages/about.html">
-  <!-- Example: If your about page is at 'https://www.ankushinfotech.com/about.html', use that URL. -->
-
-  <!-- Favicons -->
-  <link href="../assets/img/AIT.png" rel="icon">
-  <!-- If you have an Apple Touch Icon, ensure the path is correct and uncomment. -->
-  <!-- <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
-
-  <!-- Open Graph (OG) Tags: For rich previews when shared on Facebook, LinkedIn, WhatsApp, etc. -->
-  <meta property="og:title" content="About AnkushInfotech | Web Design, Software & SEO Experts">
-  <meta property="og:description"
-    content="Learn about AnkushInfotech's mission to deliver innovative web design, custom software, and powerful SEO services that empower businesses across India.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.ankushinfotech.com/pages/about.html">
-  <!-- OG Image: IMPORTANT! Replace with a full, absolute URL to a high-quality image (e.g., 1200x630px)
+    <!-- Open Graph (OG) Tags: For rich previews when shared on Facebook, LinkedIn, WhatsApp, etc. -->
+    <meta
+      property="og:title"
+      content="About AnkushInfotech | Web Design, Software & SEO Experts"
+    />
+    <meta
+      property="og:description"
+      content="Learn about AnkushInfotech's mission to deliver innovative web design, custom software, and powerful SEO services that empower businesses across India."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.ankushinfotech.com/pages/about.html"
+    />
+    <!-- OG Image: IMPORTANT! Replace with a full, absolute URL to a high-quality image (e.g., 1200x630px)
        that visually represents your company (e.g., team photo, office, or a brand graphic). -->
-  <meta property="og:image" content="https://www.ankushinfotech.com/assets/img/about-us-social-share.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="en_IN"> <!-- Recommended for targeting India -->
+    <meta
+      property="og:image"
+      content="https://www.ankushinfotech.com/assets/img/about-us-social-share.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <!-- Recommended for targeting India -->
 
-  <!-- Twitter Card Tags: For rich previews when shared on Twitter. -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@AnkushInfoTech">
-  <!-- IMPORTANT! Replace with your actual Twitter handle (e.g., @AnkushInfoTech) -->
-  <meta name="twitter:title" content="About AnkushInfotech | Web Design, Software & SEO Experts">
-  <meta name="twitter:description"
-    content="Discover AnkushInfotech's mission to deliver innovative web design, custom software, and powerful SEO services that empower businesses across India.">
-  <meta name="twitter:image" content="https://www.ankushinfotech.com/assets/img/about-us-social-share.jpg">
-  <!-- Use the same high-quality image as your OG image. -->
+    <!-- Twitter Card Tags: For rich previews when shared on Twitter. -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AnkushInfoTech" />
+    <!-- IMPORTANT! Replace with your actual Twitter handle (e.g., @AnkushInfoTech) -->
+    <meta
+      name="twitter:title"
+      content="About AnkushInfotech | Web Design, Software & SEO Experts"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover AnkushInfotech's mission to deliver innovative web design, custom software, and powerful SEO services that empower businesses across India."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.ankushinfotech.com/assets/img/about-us-social-share.jpg"
+    />
+    <!-- Use the same high-quality image as your OG image. -->
 
-  <!-- Structured Data (JSON-LD) for Organization: Provides explicit info to search engines for Knowledge Panels etc. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AnkushInfotech",
-    "url": "https://www.ankushinfotech.com",
-    "logo": "https://www.ankushinfotech.com/assets/img/AIT.png",
-    "description": "AnkushInfotech is a leading IT company based in Mumbai, Maharashtra, specializing in expert web design, custom software development, and powerful SEO services for businesses across India.",
-   "sameAs": [
-  "https://twitter.com/AnkushInfoTech",
-  "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
-  "https://www.facebook.com/share/1BrCzVtcso/",
-  "https://www.instagram.com/ankushinfotech",
-  "https://www.threads.com/@ankushinfotech",
-  "https://pin.it/4T5s6pSXy"
-]
+    <!-- Structured Data (JSON-LD) for Organization: Provides explicit info to search engines for Knowledge Panels etc. -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "AnkushInfotech",
+          "url": "https://www.ankushinfotech.com",
+          "logo": "https://www.ankushinfotech.com/assets/img/AIT.png",
+          "description": "AnkushInfotech is a leading IT company based in Mumbai, Maharashtra, specializing in expert web design, custom software development, and powerful SEO services for businesses across India.",
+         "sameAs": [
+        "https://twitter.com/AnkushInfoTech",
+        "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
+        "https://www.facebook.com/share/1BrCzVtcso/",
+        "https://www.instagram.com/ankushinfotech",
+        "https://www.threads.com/@ankushinfotech",
+        "https://pin.it/4T5s6pSXy"
+      ]
 
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
-      "addressLocality": "Kandivali West",
-      "addressRegion": "Maharashtra",
-      "postalCode": "400067",
-      "addressCountry": "IN"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-7977114561",
-      "contactType": "customer service",
-      "email": "info@ankushinfotech.com",
-      "areaServed": ["IN"],
-      "availableLanguage": ["en", "hi"]
-    }
-  }
-  </script>
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
+            "addressLocality": "Kandivali West",
+            "addressRegion": "Maharashtra",
+            "postalCode": "400067",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-7977114561",
+            "contactType": "customer service",
+            "email": "info@ankushinfotech.com",
+            "areaServed": ["IN"],
+            "availableLanguage": ["en", "hi"]
+          }
+        }
+    </script>
 
-  <!-- Optional: Specify the primary language of the document. -->
-  <meta http-equiv="Content-Language" content="en">
+    <!-- Optional: Specify the primary language of the document. -->
+    <meta http-equiv="Content-Language" content="en" />
 
-  <!-- Optional: Generator tag (can be removed if not desired) -->
-  <meta name="generator" content="AnkushInfotech (Custom Development)">
+    <!-- Optional: Generator tag (can be removed if not desired) -->
+    <meta name="generator" content="AnkushInfotech (Custom Development)" />
 
-  <!-- Optional: Define a theme color for mobile browser address bars. -->
-  <meta name="theme-color" content="#306EE0"> <!-- Consistent with homepage, or choose a new one -->
+    <!-- Optional: Define a theme color for mobile browser address bars. -->
+    <meta name="theme-color" content="#306EE0" />
+    <!-- Consistent with homepage, or choose a new one -->
 
-  <!-- Fonts: Preconnect hints for faster font loading. -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <!-- Consolidate font imports if possible, or ensure only necessary weights are loaded -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <!-- Fonts: Preconnect hints for faster font loading. -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <!-- Consolidate font imports if possible, or ensure only necessary weights are loaded -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link
+      href="../assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="../assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/vendor/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Main CSS File -->
-  <link href="../assets/css/main.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet" />
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-ZJV3V687JX');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-ZJV3V687JX");
+    </script>
 
-<!-- Google AdSense -->
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304"
-  crossorigin="anonymous"></script>
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
+  <body class="index-page" oncontextmenu="return false;">
+    <!-------------------------Top Header Section --------------------->
 
+    <!------------------------- Header Section --------------------->
+    <header id="header" class="header sticky-top">
+      <div class="branding d-flex align-items-center">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a
+            href="../index.html"
+            class="logo d-flex align-items-center me-auto"
+          >
+            <h1 class="sitename"><img src="../assets/img/AIT.png" /></h1>
+          </a>
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li>
+                <a href="../index.html" class="active">Home<br /></a>
+              </li>
+              <li><a href="../about.html">About Us</a></li>
+              <!------------------------- Software services Place DropWown---------------------------------->
+              <li class="dropdown">
+                <a href="../pages/services.html"
+                  ><span>services</span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i
+                ></a>
+                <ul>
+                  <li>
+                    <a
+                      href="../hire-ui-ux-web-design-website-developer-in-maharastra.html"
+                      >Hire UI/UX Designer</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="../hire-freelance-software-development-in-mumbai.html"
+                      >Hire Software Developer</a
+                    >
+                  </li>
+                  <li>
+                    <a href="../freelance-mobile-application-development.html"
+                      >Hire Mobile App Developer</a
+                    >
+                  </li>
+                  <li>
+                    <a href="../hire-freelance-seo-services.html"
+                      >Hire SEO Experts</a
+                    >
+                  </li>
+                  <li>
+                    <a href="../freelancer-digital-marketing.html"
+                      >Hire Digital Marketing</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="../hire-freelance-website-development-navi-mumbai.html"
+                      >Website Development</a
+                    >
+                  </li>
+                  <li><a href="../pages/services.html">More Service</a></li>
+                </ul>
+              </li>
+              <li><a href="../pages/database.html">technologies</a></li>
+              <li><a href="../pages/portfollio.html">Portfollio</a></li>
+              <li><a href="../blog/blog.html">Blog</a></li>
+              <li><a href="../pages/contact.html">Contact Us</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
 
-</head>
-
-
-<body  class="index-page"  oncontextmenu="return false;"    >
-
- <!-------------------------Top Header Section --------------------->
-
-  
-  <!------------------------- Header Section --------------------->
-  <header id="header" class="header sticky-top">
-    <div class="branding d-flex align-items-center">
-
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="../index.html" class="logo d-flex align-items-center me-auto">
-          <h1 class="sitename"><img src="../assets/img/AIT.png"></h1>
-        </a>
-        <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="../index.html" class="active">Home<br></a></li>
-            <li><a href="../about.html">About Us</a></li>
-            <!------------------------- Software services Place DropWown---------------------------------->
-            <li class="dropdown"><a href="../pages/services.html"><span>services</span> <i
-                  class="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-               
-                <li><a href="../hire-ui-ux-web-design-website-developer-in-maharastra.html">Hire UI/UX Designer</a></li>
-                <li><a href="../hire-freelance-software-development-in-mumbai.html">Hire Software Developer</a></li>
-                <li><a href="../freelance-mobile-application-development.html">Hire Mobile App Developer</a></li>
-                <li><a href="../hire-freelance-seo-services.html">Hire SEO Experts</a></li>
-                <li><a href="../freelancer-digital-marketing.html">Hire Digital Marketing</a></li>
-                <li><a href="../hire-freelance-website-development-navi-mumbai.html">Website Development</a></li>
-                <li><a href="../pages/services.html">More Service</a></li>
-              </ul>
-            </li>
-            <li><a href="../pages/database.html">technologies</a></li>
-            <li><a href="../pages/portfollio.html">Portfollio</a></li>
-            <li><a href="../blog/blog.html">Blog</a></li>
-            <li><a href="../pages/contact.html">Contact Us</a></li>
-           
-
-          </ul>
-          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <a class="cta-btn d-none d-sm-block btn btn-outline-primary" href="../admin/login.html"><i class="bi bi-person"></i></a>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <main class="main">
-    <!--------------------------- top banner Section ------------------>
-    <section id="hero" class="hero section light-background">
-      <img src="../assets/img/allbg.png" alt="Professional freelance web design and website development team"
-        data-aos="fade-in">
-      <div class="container position-relative">
-        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <h1 style="color: white;">About Us</h1>
-          <p style="color: white;">
-            I am Ankush Sharma, a professional Full-Stack Developer with MCA qualification and 10+ years of experience
-            in front-end and back-end development. I specialize in responsive 
-            web design, scalable backend systems, and secure coding practices.
-            With expertise in HTML, CSS, JavaScript, React.js, Angular.js, Node.js, PHP, C#,
-            Python, SQL Server, MongoDB, and PostgreSQL, I deliver high-quality,
-            SEO-friendly, and performance-driven web solutions for businesses across India.
-          </p>
+          <a
+            class="cta-btn d-none d-sm-block btn btn-outline-primary"
+            href="../admin/login.html"
+            ><i class="bi bi-person"></i
+          ></a>
         </div>
-        <!-- End Welcome -->
       </div>
-    </section>
-    <!-- /Hero Section -->
-    <!------------------------- About Section -------------------->
-    <section id="about" class="about section">
+    </header>
+
+    <main class="main">
+      <!--------------------------- top banner Section ------------------>
+      <section id="hero" class="hero section light-background">
+        <img
+          src="../assets/img/allbg.png"
+          alt="Professional freelance web design and website development team"
+          data-aos="fade-in"
+        />
+        <div class="container position-relative">
+          <div
+            class="welcome position-relative"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            <h1 style="color: white">About Us</h1>
+            <p style="color: white">
+              I am Ankush Sharma, a professional Full-Stack Developer with an
+              MCA qualification and 10+ years of hands-on experience in both
+              front-end and back-end development. I specialize in building fast,
+              responsive, and scalable web applications, with a strong focus on
+              performance, security, and clean code. My technical expertise
+              includes HTML, CSS, JavaScript, React.js, Angular.js, Node.js,
+              PHP, C#, Python, and databases such as SQL Server, MongoDB, and
+              PostgreSQL. I create SEO-friendly, user-centric, and
+              high-performance web solutions tailored to specific business
+              needs. With a deep understanding of modern web technologies and
+              best coding practices, I help businesses across
+              India,Us,Canada,Brazil build reliable, efficient, secure, and
+              future-ready digital products.
+            </p>
+          </div>
+          <!-- End Welcome -->
+        </div>
+      </section>
+      <!-- /Hero Section -->
+      <!------------------------- About Section -------------------->
+
+      <!-- <section id="about" class="about section">
       <div class="container">
         <div class="row gy-4 gx-5">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
             <img src="../assets/img/aboutimagesss.png" class="img-fluid"
               alt="School website design,Hospital management software,Software for educational institutions,College website redesign" style="border-radius: 10px;">
-            <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> -->
+         
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <h2>Our Services</h2>
@@ -220,16 +312,7 @@
               affordable, high-quality digital services tailored to your goals.
             </p>
             <ul>
-              <!-- <li>
-                <i class="bi bi-pc-display-horizontal"></i>
-                <div>
-                  <h5>Web & Desktop Applications with cPanel Deployment</h5>
-                  <p>
-                    We build secure web and desktop applications with cPanel deployment, offering easy management,
-                    strong performance, and reliable hosting solutions.
-                  </p>
-                </div>
-              </li> -->
+
               <li>
                 <div>
                   <p>1.<b>Your dedicated freelance software workplace</b>:- Boost productivity with a reliable freelance
@@ -263,204 +346,299 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- /About Section -->
+    </section> -->
 
-    <!-- Professional Background Section -->
-    <section id="professional-background" class="section">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-12">
-            <div class="section-title text-center" data-aos="fade-up">
-              <h2>Professional Background & Qualifications</h2>
-            </div>
-          </div>
-          
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="card h-100">
-              <div class="card-body">
-                <h4><i class="bi bi-mortarboard text-primary"></i> Educational Qualification</h4>
-                <ul class="list-unstyled">
-                  <li><strong>Master of Computer Applications (MCA)</strong></li>
-                  <li>Specialized in Software Development & System Design</li>
-                  <li>Advanced coursework in Database Management, Web Technologies, and Software Engineering</li>
-                  <li>Strong foundation in Computer Science fundamentals</li>
-                </ul>
+      <!-- /About Section -->
+
+      <!-- Professional Background Section -->
+      <section id="professional-background" class="section">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-12">
+              <div class="section-title text-center" data-aos="fade-up">
+                <h2>Professional Background & Qualifications</h2>
               </div>
             </div>
-          </div>
-          
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="card h-100">
-              <div class="card-body">
-                <h4><i class="bi bi-briefcase text-primary"></i> Professional Experience</h4>
-                <ul class="list-unstyled">
-                  <li><strong>10+ Years in Full-Stack Development</strong></li>
-                  <li>Frontend: HTML5, CSS3, JavaScript, React.js, Angular.js</li>
-                  <li>Backend: Node.js, PHP, C#, Python</li>
-                  <li>Databases: SQL Server, MongoDB, PostgreSQL</li>
-                  <li>Specialized in responsive design and SEO optimization</li>
-                </ul>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-mortarboard text-primary"></i> Educational
+                    Qualification
+                  </h4>
+                  <ul class="list-unstyled">
+                    <li>
+                      <strong>Master of Computer Applications (MCA)</strong>
+                    </li>
+                    <li>Specialized in Software Development & System Design</li>
+                    <li>
+                      Advanced coursework in Database Management, Web
+                      Technologies, and Software Engineering
+                    </li>
+                    <li>Strong foundation in Computer Science fundamentals</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <div class="card-body">
-                <h4><i class="bi bi-award text-primary"></i> Core Competencies</h4>
-                <div class="row">
-                  <div class="col-md-4">
-                    <h6>Web Development</h6>
-                    <ul>
-                      <li>Custom Website Development</li>
-                      <li>E-commerce Solutions</li>
-                      <li>Content Management Systems</li>
-                      <li>Progressive Web Apps</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-4">
-                    <h6>Software Development</h6>
-                    <ul>
-                      <li>Enterprise Applications</li>
-                      <li>API Development & Integration</li>
-                      <li>Database Design & Optimization</li>
-                      <li>Cloud-based Solutions</li>
-                    </ul>
-                  </div>
-                  <div class="col-md-4">
-                    <h6>Digital Marketing</h6>
-                    <ul>
-                      <li>Search Engine Optimization</li>
-                      <li>Technical SEO Implementation</li>
-                      <li>Performance Optimization</li>
-                      <li>Analytics & Reporting</li>
-                    </ul>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-briefcase text-primary"></i> Professional
+                    Experience
+                  </h4>
+                  <ul class="list-unstyled">
+                    <li>
+                      <strong>10+ Years in Full-Stack Development</strong>
+                    </li>
+                    <li>
+                      Frontend: HTML5, CSS3, JavaScript, React.js, Angular.js
+                    </li>
+                    <li>Backend: Node.js, PHP, C#, Python</li>
+                    <li>Databases: SQL Server, MongoDB, PostgreSQL</li>
+                    <li>
+                      Specialized in responsive design and SEO optimization
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+              <div class="card">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-award text-primary"></i> Core Competencies
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h6>Web Development</h6>
+                      <ul>
+                        <li>Custom Website Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Content Management Systems</li>
+                        <li>Progressive Web Apps</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h6>Software Development</h6>
+                      <ul>
+                        <li>Enterprise Applications</li>
+                        <li>API Development & Integration</li>
+                        <li>Database Design & Optimization</li>
+                        <li>Cloud-based Solutions</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h6>Digital Marketing</h6>
+                      <ul>
+                        <li>Search Engine Optimization</li>
+                        <li>Technical SEO Implementation</li>
+                        <li>Performance Optimization</li>
+                        <li>Analytics & Reporting</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- /Professional Background Section -->
-  </main>
-  <!-------------------------- Footer Section ----------------------------->
+      </section>
+    </main>
+    <!-------------------------- Footer Section ----------------------------->
 
-
- <footer id="footer" class="footer light-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="../index.html" class="logo d-flex align-items-center">
-            <span class="sitename"><img src="../assets/img/AIT.png"
-                alt="Commercial, Work with top freelance software developers at Ankushinfotech. High-quality coding and secure applications delivered on time. Contact now,Discover how Ankushinfotech delivers top-tier freelance web development services. Get quality work, timely delivery, and scalable solutions today."></span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Ankushinfotech creates fast, responsive, and mobile-optimized websites. Engage users on all devices.
-              Click
-              to boost your site’s performance.</p>
-            <!-- <p>Kandivali West</p>
+    <footer id="footer" class="footer light-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="../index.html" class="logo d-flex align-items-center">
+              <span class="sitename"
+                ><img
+                  src="../assets/img/AIT.png"
+                  alt="Commercial, Work with top freelance software developers at Ankushinfotech. High-quality coding and secure applications delivered on time. Contact now,Discover how Ankushinfotech delivers top-tier freelance web development services. Get quality work, timely delivery, and scalable solutions today."
+              /></span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>
+                Ankushinfotech creates fast, responsive, and mobile-optimized
+                websites. Engage users on all devices. Click to boost your
+                site’s performance.
+              </p>
+              <!-- <p>Kandivali West</p>
               <p>Maharastra Mumbai 400067</p>
               <p class="mt-3"><strong>Phone:</strong> <span>+91 7977114561</span></p>
               <p><strong>Email:</strong> <span>contact.ankushinfotech@gmail.com</span></p> -->
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href="https://x.com/AnkuskShar78670"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="https://www.facebook.com/share/1BrCzVtcso/"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/ankushinfotech?igsh=ZXlkeWN2ejJ6c2Jq"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/ankusk-infotech-0684543a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="https://www.threads.com/@ankushinfotech"
+                ><i class="bi bi-threads"></i
+              ></a>
+              <a href="https://pin.it/4T5s6pSXy"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <!-- <a href=""><i class="bi bi-pinterest"></i></a> -->
+            </div>
           </div>
-          <div class="social-links d-flex mt-4">
-            <a href="https://x.com/AnkuskShar78670"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.facebook.com/share/1BrCzVtcso/"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/ankushinfotech?igsh=ZXlkeWN2ejJ6c2Jq"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/ankusk-infotech-0684543a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.threads.com/@ankushinfotech"><i class="bi bi-threads"></i></a>
-            <a href="https://pin.it/4T5s6pSXy"><i class="bi bi-pinterest"></i></a>
-            <!-- <a href=""><i class="bi bi-pinterest"></i></a> -->
 
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <a href="../index.html"
+                  ><i class="bi bi-chevron-double-right"></i>Home</a
+                >
+              </li>
+              <li>
+                <a href="../pages/about.html"
+                  ><i class="bi bi-chevron-double-right"></i>About Us</a
+                >
+              </li>
+              <li>
+                <a href="../pages/portfollio.html"
+                  ><i class="bi bi-chevron-double-right"></i>Portfollio</a
+                >
+              </li>
+              <li>
+                <a href="../pages/contact.html"
+                  ><i class="bi bi-chevron-double-right"></i>Contact Us</a
+                >
+              </li>
+              <li>
+                <a href="../blog/blog.html"
+                  ><i class="bi bi-chevron-double-right"></i>Blog</a
+                >
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="../index.html"><i class="bi bi-chevron-double-right"></i>Home</a></li>
-            <li><a href="../pages/about.html"><i class="bi bi-chevron-double-right"></i>About Us</a></li>
-            <li><a href="../pages/portfollio.html"><i class="bi bi-chevron-double-right"></i>Portfollio</a></li>
-            <li><a href="../pages/contact.html"><i class="bi bi-chevron-double-right"></i>Contact Us</a></li>
-            <li><a href="../blog/blog.html"><i class="bi bi-chevron-double-right"></i>Blog</a></li>
-          </ul>
-        </div>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>IT Services</h4>
+            <ul>
+              <li>
+                <a href="../hire-freelance-software-development-in-mumbai.html"
+                  ><i class="bi bi-chevron-double-right"></i>Software
+                  Development</a
+                >
+              </li>
+              <li>
+                <a href="../freelance-mobile-application-development.html"
+                  ><i class="bi bi-chevron-double-right"></i>App Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../hire-ui-ux-web-design-website-developer-in-maharastra.html"
+                  ><i class="bi bi-chevron-double-right"></i>UI/UX Designer</a
+                >
+              </li>
+              <li>
+                <a href="../hire-freelance-seo-services.html"
+                  ><i class="bi bi-chevron-double-right"></i>SEO Experts</a
+                >
+              </li>
+            </ul>
+          </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>IT Services</h4>
-          <ul>
-            <li><a href="../hire-freelance-software-development-in-mumbai.html"><i class="bi bi-chevron-double-right"></i>Software Development</a></li>
-            <li><a href="../freelance-mobile-application-development.html"><i class="bi bi-chevron-double-right"></i>App Development</a></li>
-            <li><a href="../hire-ui-ux-web-design-website-developer-in-maharastra.html"><i class="bi bi-chevron-double-right"></i>UI/UX Designer</a></li>
-            <li><a href="../hire-freelance-seo-services.html"><i class="bi bi-chevron-double-right"></i>SEO Experts</a></li>
-            
-          </ul>
-        </div>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>View</h4>
+            <ul>
+              <li>
+                <a href="../pages/services.html"
+                  ><i class="bi bi-chevron-double-right"></i>More Service</a
+                >
+              </li>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>View</h4>
-          <ul>
-            <li><a href="../pages/services.html"><i class="bi bi-chevron-double-right"></i>More Service</a></li>
-            
-            <li><a href="../pages/database.html"><i class="bi bi-chevron-double-right"></i>Technologies</a></li>
-            <li><a href="../freelancer-digital-marketing.html"><i class="bi bi-chevron-double-right"></i>Digital Marketing</a></li>
-            <li><a href="../legal/privacy-policy.html"><i class="bi bi-chevron-double-right"></i>Privacy Policy</a></li>
-          </ul>
-        </div>
+              <li>
+                <a href="../pages/database.html"
+                  ><i class="bi bi-chevron-double-right"></i>Technologies</a
+                >
+              </li>
+              <li>
+                <a href="../freelancer-digital-marketing.html"
+                  ><i class="bi bi-chevron-double-right"></i>Digital
+                  Marketing</a
+                >
+              </li>
+              <li>
+                <a href="../legal/privacy-policy.html"
+                  ><i class="bi bi-chevron-double-right"></i>Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Contact Info</h4>
-          <!-- <p><i class="bi bi-geo-alt flex-shrink-0"></i> Maharastra Mumbai 400067</p>
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Contact Info</h4>
+            <!-- <p><i class="bi bi-geo-alt flex-shrink-0"></i> Maharastra Mumbai 400067</p>
               <p class="mt-3"><strong><i class="bi bi-telephone flex-shrink-0"></i> </strong> <span>+91 7977114561</span></p>
               <p><strong><i class="bi bi-envelope flex-shrink-0"></i> </strong> <span>contact.ankushinfotech@gmail.com</span></p> -->
-          <ul>
-            <li><a href="#">Location: Maharashtra, Mumbai 400067</a></li>
-            <li><a href="tel:+917977114561">Mobile: +91 7977114561</a></li>
-            <li><a href="mailto:contact.ankushinfotech@gmail.com">Email: contact.ankushinfotech@gmail.com</a></li>
-          </ul>
-
+            <ul>
+              <li><a href="#">Location: Maharashtra, Mumbai 400067</a></li>
+              <li><a href="tel:+917977114561">Mobile: +91 7977114561</a></li>
+              <li>
+                <a href="mailto:contact.ankushinfotech@gmail.com"
+                  >Email: contact.ankushinfotech@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-
       </div>
-    </div>
 
- <div class="container copyright text-center mt-4">
-  <p>© 2026 <strong>Freelance IT Blogger</strong> | <strong class="sitename">AIT</strong>. All Rights Reserved.</p>
-</div>
-  </footer>
+      <div class="container copyright text-center mt-4">
+        <p>
+          © 2026 <strong>Freelance IT Blogger</strong> |
+          <strong class="sitename">AIT</strong>. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
 
+    <a
+      href="tel:+917977114561"
+      id="call-icon"
+      class="call-btn d-flex align-items-center justify-content-center btn btn-primary"
+    >
+      <i class="bi bi-telephone"></i>
+    </a>
 
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      style="right: 30px"
+      ><i class="bi bi-arrow-clockwise"></i
+    ></a>
 
-<a href="tel:+917977114561" id="call-icon" class="call-btn d-flex align-items-center justify-content-center btn btn-primary">
-    <i class="bi bi-telephone"></i>
-  </a>
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="right: 30px;"><i class="bi bi-arrow-clockwise"></i></a>
-
-  
-<!-- Preloader -->
-<div id="preloader">
-  <div class="loader-text">Ankush Infotech</div>
-</div>
-
-
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
-  <script src="../assets/vendor/aos/aos.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/preloader.js"></script>
-  <script src="../assets/js/disbleclick.js"></script>
-  <script src="../assets/js/whatsapp.js"></script>
-
-</body>
-
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/preloader.js"></script>
+    <script src="../assets/js/disbleclick.js"></script>
+    <script src="../assets/js/whatsapp.js"></script>
+    <script src="../assets/js/faslloading.js"></script>
+  </body>
 </html>

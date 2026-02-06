@@ -219,7 +219,7 @@
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <a class="cta-btn d-none d-sm-block btn btn-outline-primary" href="admin/login.html"><i class="bi bi-person"></i></a>
+        <a class="cta-btn d-none d-sm-block btn btn-outline-primary" href="../admin/login.html"><i class="bi bi-person"></i></a>
       </div>
     </div>
 
@@ -485,59 +485,7 @@ function drawVisualization() {
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="right: 30px;"><i class="bi bi-arrow-clockwise"></i></a>
 
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="loader-text">Ankush Infotech</div>
-  </div>
-
-
-  <!-- <script>
-  fetch('http://localhost:5000/api/users')
-    .then(res => res.json())
-    .then(users => {
-      const container = document.getElementById('testimonials-container');
-
-      users.forEach(user => {
-        // Ensure image is set properly from DB path
-        const imageFileName = user.image ? user.image.split('/').pop() : null;
-
-        const imageUrl = imageFileName
-          ? `http://localhost:5000/uploads/${imageFileName}`
-          : 'assets/img/default.jpg'; // fallback image
-
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide';
-
-        slide.innerHTML = `
-          <div class="testimonial-item">
-            <div class="d-flex">
-              <img src="${imageUrl}" class="testimonial-img flex-shrink-0" alt="User Image">
-              <div>
-                <h3>${user.email}</h3>
-                <h4>${user.phone}</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                </div>
-              </div>
-            </div>
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>This is a sample testimonial for ${user.email}.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-          </div>
-        `;
-
-        container.appendChild(slide);
-      });
-    })
-    .catch(err => {
-      console.error('Error fetching users:', err);
-    });
-</script> -->
-
+  
 
 
   <!-- Vendor JS Files -->
@@ -553,6 +501,7 @@ function drawVisualization() {
   <script src="../assets/js/preloader.js"></script>
   <script src="../assets/js/disbleclick.js"></script>
   <script src="../assets/js/whatsapp.js"></script>
+  <script src="../assets/js/faslloading.js" ></script>
 
 
 </body>
