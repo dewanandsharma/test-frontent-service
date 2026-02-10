@@ -1,4 +1,14 @@
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+from = "/about.html"
+to = "/pages/about"
+status = 301
+
+[[redirects]]
+from = "/hireappdeve.html"
+to = "/hire-mobile-app-developer"
+status = 301
+
+[[redirects]]
+from = "/pages/index.html"
+to = "/"
+status = 301
