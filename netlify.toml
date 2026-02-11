@@ -1,14 +1,45 @@
-[[redirects]]
-from = "/about.html"
-to = "/pages/about"
-status = 301
+[build]
+  publish = "."
 
 [[redirects]]
-from = "/hireappdeve.html"
-to = "/hire-mobile-app-developer"
-status = 301
+  from = "/pages/about"
+  to = "/pages/about.html"
+  status = 200
 
 [[redirects]]
-from = "/pages/index.html"
-to = "/"
-status = 301
+  from = "/pages/services"
+  to = "/pages/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/contact"
+  to = "/pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/database"
+  to = "/pages/database.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/portfolio"
+  to = "/pages/portfolio.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/privacy-policy"
+  to = "/legal/privacy-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/terms-of-service"
+  to = "/legal/terms-of-service.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/disclaimer"
+  to = "/legal/disclaimer.html"
+  status = 200
+
+
+
