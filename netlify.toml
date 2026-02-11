@@ -1,6 +1,7 @@
 [build]
   publish = "."
 
+# Clean URLs → HTML files
 [[redirects]]
   from = "/pages/about"
   to = "/pages/about.html"
@@ -41,5 +42,9 @@
   to = "/legal/disclaimer.html"
   status = 200
 
-
-
+# Force non-www domain (SEO critical)
+[[redirects]]
+  from = "https://www.ankushinfotech.com/*"
+  to = "https://ankushinfotech.com/:splat"
+  status = 301
+  force = true
