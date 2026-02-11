@@ -1,32 +1,7 @@
 [build]
   publish = "."
 
-# --------------------------------------------------
-# 1. FORCE CLEAN URLS (Canonical Control)
-# --------------------------------------------------
-
-[[redirects]]
-  from = "/pages/about.html"
-  to = "/pages/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/pages/services.html"
-  to = "/pages/services"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/legal/privacy-policy.html"
-  to = "/legal/privacy-policy"
-  status = 301
-  force = true
-
-# --------------------------------------------------
-# 2. CLEAN URLS → REAL HTML FILES (Rewrites)
-# --------------------------------------------------
-
+# Serve clean URLs (no .html)
 [[redirects]]
   from = "/pages/about"
   to = "/pages/about.html"
@@ -67,10 +42,7 @@
   to = "/legal/disclaimer.html"
   status = 200
 
-# --------------------------------------------------
-# 3. FORCE NON-WWW DOMAIN (SEO CRITICAL)
-# --------------------------------------------------
-
+# Force non-www (VERY IMPORTANT for ranking)
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
