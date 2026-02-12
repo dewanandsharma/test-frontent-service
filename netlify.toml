@@ -1,48 +1,14 @@
 [build]
   publish = "."
 
-# Serve clean URLs (no .html)
-[[redirects]]
-  from = "/pages/about"
-  to = "/pages/about.html"
-  status = 200
+# Enable Pretty URLs
+[build.processing]
+  skip_processing = false
 
-[[redirects]]
-  from = "/pages/services"
-  to = "/pages/services.html"
-  status = 200
+[build.processing.html]
+  pretty_urls = true
 
-[[redirects]]
-  from = "/pages/contact"
-  to = "/pages/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/database"
-  to = "/pages/database.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/portfolio"
-  to = "/pages/portfolio.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/privacy-policy"
-  to = "/legal/privacy-policy.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/terms-of-service"
-  to = "/legal/terms-of-service.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/disclaimer"
-  to = "/legal/disclaimer.html"
-  status = 200
-
-# Force non-www (VERY IMPORTANT for ranking)
+# Force non-www → apex domain
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
