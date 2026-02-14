@@ -1,16 +1,29 @@
 [build]
   publish = "."
 
-# Enable Pretty URLs
 [build.processing]
   skip_processing = false
 
 [build.processing.html]
   pretty_urls = true
 
-# Force non-www → apex domain
+# 1. Force non-www → apex domain
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
   status = 301
   force = true
+
+# 2. THE FIX: Redirect all old .html links to clean links
+# This fixes the "red rectangle" errors for links from Google
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# 3. Handle 404 Page (Must be at the very bottom)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
