@@ -7,22 +7,32 @@
 [build.processing.html]
   pretty_urls = true
 
-# 1. Force non-www → apex domain
+# 1. Force non-www to apex domain
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
   status = 301
   force = true
 
-# 2. THE FIX: Redirect all old .html links to clean links
-# This fixes the "red rectangle" errors for links from Google
+# 2. FIX SPECIFIC GOOGLE LINKS (Mapping short URLs to your long file names)
+[[redirects]]
+  from = "/hireappdeve"
+  to = "/freelance-mobile-application-development"
+  status = 301
+
+[[redirects]]
+  from = "/hire-freelance-app-developers"
+  to = "/freelance-mobile-application-development"
+  status = 301
+
+# 3. FIX FOR .HTML EXTENSIONS
 [[redirects]]
   from = "/*.html"
   to = "/:splat"
   status = 301
   force = true
 
-# 3. Handle 404 Page (Must be at the very bottom)
+# 4. Handle 404 Page (MUST BE LAST)
 [[redirects]]
   from = "/*"
   to = "/404.html"
