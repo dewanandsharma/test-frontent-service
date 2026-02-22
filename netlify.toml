@@ -62,8 +62,8 @@ status = 301
   
 
 [[redirects]]
-  from = "/admin/Admin"
-  to = "/Admin"
+  from = "/admin/login"
+  to = "/login"
   status = 301   
 
 # 404 (ALWAYS LAST)

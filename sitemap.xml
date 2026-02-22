@@ -1,60 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://ankushinfotech.com/</loc>
-  <lastmod>2026-02-12T20:22:49+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/pages/about.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/pages/services.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/hire-ui-ux-web-design-website-developer-in-maharastra.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/hire-freelance-software-development-in-mumbai.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/freelance-mobile-application-development.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/hire-freelance-seo-services.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/freelancer-digital-marketing.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/hire-freelance-website-development-navi-mumbai.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/pages/database.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/pages/portfolio.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/blog/blog.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ankushinfotech.com/pages/contact.html</loc>
-  <priority>0.80</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>https://ankushinfotech.com/</loc>
+    <lastmod>2026-02-12T20:22:49+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/pages/about.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/pages/services.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/hire-ui-ux-web-design-website-developer-in-maharastra.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/hire-freelance-software-development-in-mumbai.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/freelance-mobile-application-development.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/hire-freelance-seo-services.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/freelancer-digital-marketing.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/hire-freelance-website-development-navi-mumbai.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/pages/database.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/pages/portfolio.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/blog/blog.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ankushinfotech.com/pages/contact.html</loc>
+    <priority>0.80</priority>
+  </url>
+
 </urlset>
