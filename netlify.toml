@@ -55,6 +55,16 @@
   to = "/contact"
   status = 301
 
+[[redirects]]
+  from = "/blog/blog"
+  to = "/blog"
+  status = 301  
+
+[[redirects]]
+  from = "/admin/Admin"
+  to = "/Admin"
+  status = 301   
+
 # 404 (ALWAYS LAST)
 [[redirects]]
   from = "/*"
