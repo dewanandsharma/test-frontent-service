@@ -49,51 +49,64 @@
 
   <!-- Structured Data (JSON-LD) for ContactPoint and Organization: Helps search engines understand your contact info -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "url": "https://www.ankushinfotech.com/contact.html",
-    "description": "Official contact page for AnkushInfotech, offering freelance web design, app development, SEO, and custom software solutions in India.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-7977114561",
-      "contactType": "customer service",
-      "email": "contact.ankushinfotech@gmail.com", // IMPORTANT: Replace with your actual email
-      "areaServed": ["IN", "Mumbai", "Maharashtra", "Uttar Pradesh", "Lucknow", "Gorkhapur", "Deoria"],
-      "availableLanguage": ["en", "hi"] // English, Hindi
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://www.ankushinfotech.com/contact.html"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "AnkushInfotech",
-      "url": "https://www.ankushinfotech.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ankushinfotech.com/assets/img/AIT.png" // Your organization's logo
-      },
-    "sameAs": [
-  "https://twitter.com/AnkushInfoTech",
-  "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
-  "https://www.facebook.com/share/1BrCzVtcso/",
-  "https://www.instagram.com/ankushinfotech",
-  "https://www.threads.com/@ankushinfotech",
-  "https://pin.it/4T5s6pSXy"
-]
-
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel", // IMPORTANT: Provide your full street address here
-        "addressLocality": "Kandivali West", // IMPORTANT: Refined locality for clarity
-        "addressRegion": "Maharashtra",
-        "postalCode": "400067",
-        "addressCountry": "IN"
-      }
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.ankushinfotech.com/contact.html#professionalservice",
+  "name": "AnkushInfotech Freelance Database Experts",
+  "description": "Contact AnkushInfotech for freelance database consulting, SQL Server, PostgreSQL, MongoDB and Node.js backend development services across India.",
+  "url": "https://www.ankushinfotech.com/contact.html",
+  "image": "https://www.ankushinfotech.com/assets/img/AIT.png",
+  "telephone": "+91-7977114561",
+  "email": "contact.ankushinfotech@gmail.com",
+  "priceRange": "₹₹",
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
+    "addressLocality": "Kandivali West",
+    "addressRegion": "Maharashtra",
+    "postalCode": "400067",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 19.2058,
+    "longitude": 72.8417
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://x.com/AnkuskShar78670",
+    "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
+    "https://www.facebook.com/share/1BrCzVtcso/",
+    "https://www.instagram.com/ankushinfotech",
+    "https://www.threads.com/@ankushinfotech",
+    "https://pin.it/4T5s6pSXy"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-7977114561",
+    "contactType": "customer service",
+    "areaServed": "IN",
+    "availableLanguage": ["English", "Hindi"]
   }
-  </script>
+}
+</script>
 
   <!-- Optional: Specify the primary language of the document. -->
   <meta http-equiv="Content-Language" content="en">

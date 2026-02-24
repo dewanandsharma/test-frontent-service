@@ -47,79 +47,71 @@
   <!-- Structured Data (JSON-LD) for Service and Organization:
        Crucial for local SEO and rich results in search engines. -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service", // Represents a service offered
-    "name": "Freelance Web Design & Development Services",
-    "description": "AnkushInfotech provides expert freelance web design, responsive development, e-commerce, and web application solutions for businesses across India.",
-    "url": "https://www.ankushinfotech.com/hirewebsite.html",
-    "image": "https://www.ankushinfotech.com/assets/img/web-design-social-share.jpg", // A representative image for this service
-    "provider": {
-      "@type": "Organization",
-      "name": "AnkushInfotech",
-      "url": "https://www.ankushinfotech.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ankushinfotech.com/assets/img/AIT.png"
-      },
-      "sameAs": [
-  "https://twitter.com/AnkushInfoTech",
-  "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
-  "https://www.facebook.com/share/1BrCzVtcso/",
-  "https://www.instagram.com/ankushinfotech",
-  "https://www.threads.com/@ankushinfotech",
-  "https://pin.it/4T5s6pSXy"
-]
-
-       "address": {
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.ankushinfotech.com/hirewebsite.html#service",
+  "name": "Freelance Web Design & Development Services",
+  "description": "AnkushInfotech provides expert freelance web design, responsive development, e-commerce, and web application solutions for businesses across India.",
+  "url": "https://www.ankushinfotech.com/hirewebsite.html",
+  "image": "https://www.ankushinfotech.com/assets/img/web-design-social-share.jpg",
+  "provider": {
+    "@type": "Organization",
+    "name": "AnkushInfotech",
+    "url": "https://www.ankushinfotech.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.ankushinfotech.com/assets/img/AIT.png"
+    },
+    "sameAs": [
+      "https://twitter.com/AnkushInfoTech",
+      "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
+      "https://www.facebook.com/share/1BrCzVtcso/",
+      "https://www.instagram.com/ankushinfotech",
+      "https://www.threads.com/@ankushinfotech",
+      "https://pin.it/4T5s6pSXy"
+    ],
+    "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel", // IMPORTANT: Provide your full street address here
-      "addressLocality": "Kandivali West", // IMPORTANT: Refined locality for clarity
+      "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
+      "addressLocality": "Kandivali West",
       "addressRegion": "Maharashtra",
       "postalCode": "400067",
       "addressCountry": "IN"
-       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+917977114561", // IMPORTANT: Replace with your actual phone number
-        "contactType": "customer service",
-        "email": "contact.ankushinfotech@gmail.com" // IMPORTANT: Replace with your actual email
-      }
     },
-    "serviceType": [ // List specific types of web design/development services offered on this page
-      "Web Design",
-      "Website Development",
-      "Custom Website Design",
-      "Responsive Web Design",
-      "E-commerce Website Development",
-      "Web Application Development",
-      "Frontend Development",
-      "Backend Development",
-      "Website Redesign",
-      "Website Maintenance",
-      "UI/UX for Websites"
-    ],
-    "areaServed": [ // Reiterate service areas for the specific service
-      { "@type": "Place", "name": "India" },
-      { "@type": "Place", "name": "Uttar Pradesh" },
-      { "@type": "Place", "name": "Lucknow" },
-      { "@type": "Place", "name": "Varanasi" },
-      { "@type": "Place", "name": "Prayagraj" },
-      { "@type": "Place", "name": "Mumbai" },
-      { "@type": "Place", "name": "Delhi" }
-      // Add other specific cities if relevant
-    ]
-    // If you have specific pricing or offers, you can add an "offers" property here.
-    // "offers": {
-    //   "@type": "Offer",
-    //   "priceCurrency": "INR",
-    //   "price": "Call for Quote",
-    //   "availability": "https://schema.org/InStock",
-    //   "url": "https://www.ankushinfotech.com/contact.html" // Link to a page where they can get a quote
-    // }
-  }
-  </script>
-
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7977114561",
+      "contactType": "customer service",
+      "email": "contact.ankushinfotech@gmail.com",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  },
+  "serviceType": [
+    "Web Design",
+    "Website Development",
+    "Custom Website Design",
+    "Responsive Web Design",
+    "E-commerce Website Development",
+    "Web Application Development",
+    "Frontend Development",
+    "Backend Development",
+    "Website Redesign",
+    "Website Maintenance",
+    "UI/UX for Websites"
+  ],
+  "areaServed": [
+    { "@type": "Country", "name": "India" },
+    { "@type": "AdministrativeArea", "name": "Uttar Pradesh" },
+    { "@type": "City", "name": "Lucknow" },
+    { "@type": "City", "name": "Varanasi" },
+    { "@type": "City", "name": "Prayagraj" },
+    { "@type": "City", "name": "Mumbai" },
+    { "@type": "City", "name": "Delhi" }
+  ]
+}
+</script>
   <!-- Optional: Specify the primary language of the document. -->
   <meta http-equiv="Content-Language" content="en">
 

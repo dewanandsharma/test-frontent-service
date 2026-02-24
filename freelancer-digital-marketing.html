@@ -48,79 +48,72 @@
   <!-- Structured Data (JSON-LD) for Service and Organization:
        Crucial for local SEO and rich results in search engines. -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service", // Represents a service offered
-    "name": "Digital Marketing Services",
-    "description": "AnkushInfotech provides comprehensive freelance digital marketing expertise including SEO, social media marketing, PPC, and content strategy to boost online presence and conversions.",
-    "url": "https://www.ankushinfotech.com/digitalmarket.html", // IMPORTANT! Standardized to match canonical URL.
-    "image": "https://www.ankushinfotech.com/assets/img/digital-marketing-social-share.jpg", // A representative image for this service
-    "provider": {
-      "@type": "Organization",
-      "name": "AnkushInfotech",
-      "url": "https://www.ankushinfotech.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.ankushinfotech.com/assets/img/AIT.png"
-      },
-      "sameAs": [
-  "https://twitter.com/AnkushInfoTech",
-  "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
-  "https://www.facebook.com/share/1BrCzVtcso/",
-  "https://www.instagram.com/ankushinfotech",
-  "https://www.threads.com/@ankushinfotech",
-  "https://pin.it/4T5s6pSXy"
-]
-
-      "address": {
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.ankushinfotech.com/digitalmarket.html#service",
+  "name": "Digital Marketing Services",
+  "description": "AnkushInfotech provides comprehensive freelance digital marketing expertise including SEO, social media marketing, PPC, and content strategy to boost online presence and conversions.",
+  "url": "https://www.ankushinfotech.com/digitalmarket.html",
+  "image": "https://www.ankushinfotech.com/assets/img/digital-marketing-social-share.jpg",
+  "provider": {
+    "@type": "Organization",
+    "name": "AnkushInfotech",
+    "url": "https://www.ankushinfotech.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.ankushinfotech.com/assets/img/AIT.png"
+    },
+    "sameAs": [
+      "https://twitter.com/AnkushInfoTech",
+      "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
+      "https://www.facebook.com/share/1BrCzVtcso/",
+      "https://www.instagram.com/ankushinfotech",
+      "https://www.threads.com/@ankushinfotech",
+      "https://pin.it/4T5s6pSXy"
+    ],
+    "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel", // IMPORTANT: Provide your full street address here
-      "addressLocality": "Andheri Mumbai", // IMPORTANT: Refined locality for clarity
+      "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
+      "addressLocality": "Andheri",
       "addressRegion": "Maharashtra",
       "postalCode": "400053",
       "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-7977114561", // IMPORTANT: Replace with your actual phone number
-        "contactType": "customer service",
-        "email": "info@ankushinfotech.com" // IMPORTANT: Replace with your actual email
-      }
     },
-    "serviceType": [ // List specific types of services offered on this page
-      "Digital Marketing",
-      "Search Engine Optimization (SEO)",
-      "Social Media Marketing",
-      "PPC Advertising",
-      "Content Marketing",
-      "Facebook Marketing",
-      "Instagram Marketing",
-      "YouTube Marketing",
-      "Threads Marketing",
-      "Pinterest Marketing",
-      "Online Advertising Strategy"
-    ],
-    "areaServed": [ // Reiterate service areas for the specific service
-      { "@type": "Place", "name": "India" },
-      { "@type": "Place", "name": "Maharashtra" },
-      { "@type": "Place", "name": "Mumbai" },
-      { "@type": "Place", "name": "Lucknow" },
-      { "@type": "Place", "name": "Delhi" },
-      { "@type": "Place", "name": "Varanasi" },
-      { "@type": "Place", "name": "Gorkhapur" },
-      { "@type": "Place", "name": "Deoria" }
-    ]
-    // If you have specific pricing or offers, you can add an "offers" property here.
-    // "offers": {
-    //   "@type": "Offer",
-    //   "priceCurrency": "INR",
-    //   "price": "Call for Quote",
-    //   "availability": "https://schema.org/InStock",
-    //   "url": "https://www.ankushinfotech.com/contact.html" // Link to a page where they can get a quote
-    // }
-  }
-  </script>
-
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7977114561",
+      "contactType": "customer service",
+      "email": "info@ankushinfotech.com",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    }
+  },
+  "serviceType": [
+    "Digital Marketing",
+    "Search Engine Optimization",
+    "Social Media Marketing",
+    "PPC Advertising",
+    "Content Marketing",
+    "Facebook Marketing",
+    "Instagram Marketing",
+    "YouTube Marketing",
+    "Threads Marketing",
+    "Pinterest Marketing",
+    "Online Advertising Strategy"
+  ],
+  "areaServed": [
+    { "@type": "Country", "name": "India" },
+    { "@type": "AdministrativeArea", "name": "Maharashtra" },
+    { "@type": "City", "name": "Mumbai" },
+    { "@type": "City", "name": "Lucknow" },
+    { "@type": "City", "name": "Delhi" },
+    { "@type": "City", "name": "Varanasi" },
+    { "@type": "City", "name": "Gorakhpur" },
+    { "@type": "City", "name": "Deoria" }
+  ]
+}
+</script>
   <!-- Optional: Specify the primary language of the document. -->
   <meta http-equiv="Content-Language" content="en">
 

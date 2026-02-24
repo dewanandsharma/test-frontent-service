@@ -77,41 +77,40 @@
 
     <!-- Structured Data (JSON-LD) for Organization: Provides explicit info to search engines for Knowledge Panels etc. -->
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "AnkushInfotech",
-          "url": "https://www.ankushinfotech.com",
-          "logo": "https://www.ankushinfotech.com/assets/img/AIT.png",
-          "description": "AnkushInfotech is a leading IT company based in Mumbai, Maharashtra, specializing in expert web design, custom software development, and powerful SEO services for businesses across India.",
-         "sameAs": [
-        "https://twitter.com/AnkushInfoTech",
-        "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
-        "https://www.facebook.com/share/1BrCzVtcso/",
-        "https://www.instagram.com/ankushinfotech",
-        "https://www.threads.com/@ankushinfotech",
-        "https://pin.it/4T5s6pSXy"
-      ]
-
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
-            "addressLocality": "Kandivali West",
-            "addressRegion": "Maharashtra",
-            "postalCode": "400067",
-            "addressCountry": "IN"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-7977114561",
-            "contactType": "customer service",
-            "email": "info@ankushinfotech.com",
-            "areaServed": ["IN"],
-            "availableLanguage": ["en", "hi"]
-          }
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://ankushinfotech.com/#organization",
+        "name": "AnkushInfotech",
+        "url": "https://ankushinfotech.com",
+        "logo": "https://ankushinfotech.com/assets/img/AIT.png",
+        "description": "AnkushInfotech is a leading IT company based in Mumbai, Maharashtra, specializing in expert web design, custom software development, and powerful SEO services for businesses across India.",
+        "sameAs": [
+          "https://twitter.com/AnkushInfoTech",
+          "https://www.linkedin.com/in/ankusk-infotech-0684543a8",
+          "https://www.facebook.com/share/1BrCzVtcso/",
+          "https://www.instagram.com/ankushinfotech",
+          "https://www.threads.com/@ankushinfotech",
+          "https://pin.it/4T5s6pSXy"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Azad Compound, 90 Feet Road, Rm. No. A-59, Shree Durga Seva Samiti, B/H Chandrika Hotel",
+          "addressLocality": "Kandivali West",
+          "addressRegion": "Maharashtra",
+          "postalCode": "400067",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7977114561",
+          "contactType": "customer service",
+          "email": "info@ankushinfotech.com",
+          "areaServed": "IN",
+          "availableLanguage": ["en", "hi"]
         }
+      }
     </script>
-
     <!-- Optional: Specify the primary language of the document. -->
     <meta http-equiv="Content-Language" content="en" />
 
@@ -204,7 +203,7 @@
               <li>
                 <a href="../index.html" class="active">Home<br /></a>
               </li>
-              <li><a href="../about.html">About Us</a></li>
+              <li><a href="../pages/about.html">About Us</a></li>
               <!------------------------- Software services Place DropWown---------------------------------->
               <li class="dropdown">
                 <a href="../pages/services.html"
