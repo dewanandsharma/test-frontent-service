@@ -45,29 +45,8 @@
   to = "/freelancer-digital-marketing"
   status = 301
 
-[[redirects]]
-  from = "/pages/about"
-  to = "/about"
-  status = 301
-
-[[redirects]]
-  from = "/pages/contact"
-  to = "/contact"
-  status = 301
-
-[[redirects]]
-from = "/blog/blog"
-to = "/blog"
-status = 301
-  
-
-[[redirects]]
-  from = "/admin/login"
-  to = "/login"
-  status = 301   
-
 # 404 (ALWAYS LAST)
 [[redirects]]
   from = "/*"
-  to = "/404.html"
+  to = "/index.html"
   status = 404
