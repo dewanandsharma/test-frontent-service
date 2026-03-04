@@ -60,6 +60,15 @@
   to = "/pages/portfolio"
   status = 301
 
+[[redirects]]
+  from = "/blog/blog"
+  to = "/blog/blog.html"
+  status = 200
+
+[[redirects]]
+from = "/blog/blog.html"
+to = "/blog/blog"
+status = 301  
 
 # -------------------------
 # Legal Pages
