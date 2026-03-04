@@ -66,10 +66,10 @@
   status = 200
 
 [[redirects]]
-from = "/blog/blog.html"
-to = "/blog/blog"
-status = 301  
-
+  from = "/blog/blog.html"
+  to = "/blog/blog"
+  status = 301
+  
 # -------------------------
 # Legal Pages
 # -------------------------
