@@ -1,6 +1,7 @@
 User-agent: *
+Allow: /
 Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /Userlist/
 
-Sitemap: https://www.ankushinfotech.com/sitemap.xml
+# Point to the correct Non-WWW sitemap to match your Netlify settings
+Sitemap: https://ankushinfotech.com/sitemap.xml
