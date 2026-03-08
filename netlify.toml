@@ -1,20 +1,16 @@
 [build]
   publish = "."
 
-# -------------------------
-# Clean URL Rules
-# -------------------------
+[build.processing]
+  skip_processing = false
+[build.processing.html]
+  pretty_urls = true
 
-# About
-[[redirects]]
-  from = "/pages/about"
-  to = "/pages/about.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/about.html"
-  to = "/pages/about"
-  status = 301
+# -------------------------
+# Clean URL Rules (Internal Mapping)
+# -------------------------
+# Netlify's 'pretty_urls = true' handles the .html stripping automatically.
+# However, for manual control over specific paths, keep these:
 
 # Services
 [[redirects]]
@@ -22,95 +18,31 @@
   to = "/pages/services.html"
   status = 200
 
-[[redirects]]
-  from = "/pages/services.html"
-  to = "/pages/services"
-  status = 301
-
-# Contact
-[[redirects]]
-  from = "/pages/contact"
-  to = "/pages/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/contact.html"
-  to = "/pages/contact"
-  status = 301
-
-# Database
-[[redirects]]
-  from = "/pages/database"
-  to = "/pages/database.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/database.html"
-  to = "/pages/database"
-  status = 301
-
 # Portfolio
 [[redirects]]
   from = "/pages/portfolio"
   to = "/pages/portfolio.html"
   status = 200
 
-[[redirects]]
-  from = "/pages/portfolio.html"
-  to = "/pages/portfolio"
-  status = 301
-
+# Blog
 [[redirects]]
   from = "/blog/blog"
   to = "/blog/blog.html"
   status = 200
 
-[[redirects]]
-  from = "/blog/blog.html"
-  to = "/blog/blog"
-  status = 301
-  
 # -------------------------
-# Legal Pages
+# Global Domain Rules (SEO Priority)
 # -------------------------
 
-[[redirects]]
-  from = "/legal/privacy-policy"
-  to = "/legal/privacy-policy.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/privacy-policy.html"
-  to = "/legal/privacy-policy"
-  status = 301
-
-[[redirects]]
-  from = "/legal/terms-of-service"
-  to = "/legal/terms-of-service.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/terms-of-service.html"
-  to = "/legal/terms-of-service"
-  status = 301
-
-[[redirects]]
-  from = "/legal/disclaimer"
-  to = "/legal/disclaimer.html"
-  status = 200
-
-[[redirects]]
-  from = "/legal/disclaimer.html"
-  to = "/legal/disclaimer"
-  status = 301
-
-
-# -------------------------
-# Force non-www
-# -------------------------
-
+# Force non-www to Apex Domain (Essential for SEO Link Equity)
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
   status = 301
   force = true
+
+# Handle 404s (Custom Error Page)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
