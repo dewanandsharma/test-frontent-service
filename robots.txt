@@ -3,5 +3,9 @@ Allow: /
 Disallow: /admin/
 Disallow: /dashboard/
 
-# Point to the correct Non-WWW sitemap to match your Netlify settings
+# Allow AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Sitemap
 Sitemap: https://ankushinfotech.com/sitemap.xml

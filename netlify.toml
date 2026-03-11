@@ -1,47 +1,124 @@
 [build]
   publish = "."
+  command = "echo 'Build complete'"
 
 [build.processing]
   skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
 [build.processing.html]
   pretty_urls = true
 
-# -------------------------
-# Clean URL Rules (Internal Mapping)
-# -------------------------
-# Netlify's 'pretty_urls = true' handles the .html stripping automatically.
-# However, for manual control over specific paths, keep these:
-
-# Services
-[[redirects]]
-  from = "/pages/services"
-  to = "/pages/services.html"
-  status = 200
-
-# Portfolio
-[[redirects]]
-  from = "/pages/portfolio"
-  to = "/pages/portfolio.html"
-  status = 200
-
-# Blog
-[[redirects]]
-  from = "/blog/blog"
-  to = "/blog/blog.html"
-  status = 200
+[build.processing.images]
+  compress = true
 
 # -------------------------
-# Global Domain Rules (SEO Priority)
+# SEO & Security Headers
 # -------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
 
-# Force non-www to Apex Domain (Essential for SEO Link Equity)
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Link = "</css/style.css>; rel=preload; as=style, </js/main.js>; rel=preload; as=script"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# -------------------------
+# Domain Canonicalization (SEO Critical)
+# -------------------------
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
   status = 301
   force = true
 
-# Handle 404s (Custom Error Page)
+[[redirects]]
+  from = "http://ankushinfotech.com/*"
+  to = "https://ankushinfotech.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.ankushinfotech.com/*"
+  to = "https://ankushinfotech.com/:splat"
+  status = 301
+  force = true
+
+# -------------------------
+# Clean URL Rewrites
+# -------------------------
+[[redirects]]
+  from = "/pages/services"
+  to = "/pages/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/portfolio"
+  to = "/pages/portfolio.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/blog"
+  to = "/blog/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# -------------------------
+# Trailing Slash Normalization
+# -------------------------
+[[redirects]]
+  from = "/*//"
+  to = "/:splat"
+  status = 301
+
+# -------------------------
+# Error Pages
+# -------------------------
 [[redirects]]
   from = "/*"
   to = "/404.html"
