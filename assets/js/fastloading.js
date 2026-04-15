@@ -1,11 +1,6 @@
 (function () {
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", init);
-    } else {
-        init();
-    }
-
-    function init() {
+    const init = () => {
+        // 1. Define the observer first
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -20,8 +15,25 @@
             });
         }, { rootMargin: "50px" });
 
-        document.querySelectorAll("img[data-src], .hero-bg").forEach(img => {
-            observer.observe(img);
+        // 2. Apply the logic to your elements
+        document.querySelectorAll("img[data-src], .hero-bg").forEach((img, index) => {
+            // Immediately load the first hero image to boost LCP score
+            if (index === 0) { 
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute("data-src");
+                }
+                img.style.opacity = "1";
+            } else {
+                // Lazy load everything else as the user scrolls
+                observer.observe(img);
+            }
         });
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
     }
 })();
