@@ -29,38 +29,17 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
+    # FIXED CSP: Added Google Ads, Fonts, and GTM support
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://adservice.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: https://pagead2.googlesyndication.com; font-src 'self' data: https://fonts.gstatic.com; frame-src https://googleads.g.doubleclick.net https://www.google.com;"
 
 [[headers]]
-  for = "/"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-    Link = "</css/style.css>; rel=preload; as=style, </js/main.js>; rel=preload; as=script"
-
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/images/*"
+  for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 # -------------------------
-# Domain Canonicalization (SEO Critical)
+# Domain Canonicalization (Force Non-WWW & HTTPS)
 # -------------------------
 [[redirects]]
   from = "https://www.ankushinfotech.com/*"
@@ -74,30 +53,25 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "http://www.ankushinfotech.com/*"
-  to = "https://ankushinfotech.com/:splat"
-  status = 301
-  force = true
-
 # -------------------------
-# Clean URL Rewrites
+# Clean URL Rewrites for New SEO Pages
 # -------------------------
 [[redirects]]
-  from = "/pages/services"
-  to = "/pages/services.html"
+  from = "/seo-services"
+  to = "/hire-freelance-seo-services.html"
   status = 200
 
 [[redirects]]
-  from = "/pages/portfolio"
-  to = "/pages/portfolio.html"
+  from = "/software-development"
+  to = "/hire-freelance-software-development-in-mumbai.html"
   status = 200
 
 [[redirects]]
-  from = "/blog/blog"
-  to = "/blog/blog.html"
+  from = "/ui-ux-design-web-development"
+  to = "/hire-ui-ux-web-design-website-developer-in-maharastra"
   status = 200
 
+# Fix index duplicates
 [[redirects]]
   from = "/index"
   to = "/"
@@ -109,15 +83,7 @@
   status = 301
 
 # -------------------------
-# Trailing Slash Normalization
-# -------------------------
-[[redirects]]
-  from = "/*//"
-  to = "/:splat"
-  status = 301
-
-# -------------------------
-# Error Pages
+# 404 Error Handling
 # -------------------------
 [[redirects]]
   from = "/*"
