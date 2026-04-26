@@ -1,3 +1,9 @@
+
+
+
+
+
+
 .quote-modal {
   position: fixed;
   inset: 0;
@@ -244,12 +250,45 @@ html, body {
 }
 
 
+/* 1. Set the font globally on the body */
+/* Targeted fix for the text in your screenshot */
+.footer-contact p {
+    font-family: 'Oswald', sans-serif !important;
+}
 
+/* 1. Set the font globally on the body */
 body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 2. Force all text elements to inherit from body */
+p, span, button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* 3. General reset for links and lists */
+a {
+    text-decoration: none;
+    color: inherit; 
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+    
+
+
+/* body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
-}
+} */
 
 /* * {
   outline: 1px solid red;
@@ -273,7 +312,7 @@ h2{
   font-size: 20px;
   font-weight: bold;
 }
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -281,7 +320,7 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
-}
+} */
 
 /* Pulsating Play Button
 ------------------------------*/

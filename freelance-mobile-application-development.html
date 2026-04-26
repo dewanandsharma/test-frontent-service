@@ -69,6 +69,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -182,7 +183,7 @@
           <a href="index.html" class="logo d-flex align-items-center me-auto">
             <img
               src="assets/img/AIT.png"
-              alt="AnkushInfotech Freelance Mobile Application Development Services Logo"
+              alt="Ankush Infotech software & website development company logo"
               class="sitename"
             />
           </a>
@@ -191,7 +192,27 @@
               <li>
                 <a href="index.html" class="active">Home<br /></a>
               </li>
-              <li><a href="pages/about.html">About Us</a></li>
+              <li class="dropdown">
+                <a href="pages/about.html"
+                  ><span>About Us</span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i
+                ></a>
+                <ul>
+                  <li></li>
+
+                  <li><a href="pages/portfollio.html">Portfollio</a></li>
+                  <li><a href="blog/blog.html">Blog</a></li>
+                  <li><a href="faq.html">FAQ</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#" class="quote-btn">
+                  <span class="full-text">Request a Free Quote</span>
+                  <span class="short-text">Free Quote</span>
+                </a>
+              </li>
+
               <!------------------------- Software services Place DropWown---------------------------------->
               <li class="dropdown">
                 <a href="pages/services.html"
@@ -229,15 +250,15 @@
                       >Website Development</a
                     >
                   </li>
+                  <li><a href="pages/database.html">technologies</a></li>
                   <li><a href="pages/services.html">More Service</a></li>
                 </ul>
               </li>
-              <li><a href="pages/database.html">technologies</a></li>
-              <li><a href="pages/portfollio.html">Portfollio</a></li>
-              <li><a href="blog/blog.html">Blog</a></li>
+
               <li><a href="pages/contact.html">Contact Us</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            <!-- <i class="bi bi-three-dots-vertical"></i> -->
           </nav>
           <a
             class="cta-btn d-none d-sm-block btn btn-outline-primary"
