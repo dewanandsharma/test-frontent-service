@@ -234,17 +234,15 @@
 
 <!-- ======= Contact Section ======= -->
 <!-- Added 'itemscope' for local business SEO visibility -->
+<!-- ======= Contact Section ======= -->
 <section id="contact" class="contact section" itemscope itemtype="https://schema.org/LocalBusiness">
-  
-  <!-- SEO Hidden Metadata for India/Maharashtra Global Coverage -->
+  <!-- SEO Microdata -->
   <meta itemprop="name" content="AnkushInfotech">
   <meta itemprop="description" content="Professional freelance software engineer and web designer in Mumbai, Maharashtra. Providing expert IT services across India.">
   <meta itemprop="url" content="https://ankushinfotech.com">
   <meta itemprop="image" content="https://ankushinfotech.com/assets/img/AIT.png">
 
-  <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <!-- H2 targets high-value local and national keywords -->
     <h2>Contact AnkushInfotech - Freelance Web Designer & Software Engineer in Mumbai</h2>
     <p>Get in touch for professional IT services in Maharashtra and across India.</p>
   </div>
@@ -252,8 +250,8 @@
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="row gy-4">
 
+      <!-- Contact Info Blocks -->
       <div class="col-lg-4">
-        <!-- Address Item with Schema.org markup -->
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
           <i class="bi bi-geo-alt flex-shrink-0"></i>
           <div>
@@ -268,7 +266,6 @@
           </div>
         </div>
 
-        <!-- Phone Item -->
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
           <i class="bi bi-telephone flex-shrink-0"></i>
           <div>
@@ -277,7 +274,6 @@
           </div>
         </div>
 
-        <!-- Email Item -->
         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
           <i class="bi bi-envelope flex-shrink-0"></i>
           <div>
@@ -292,33 +288,37 @@
         <form id="contactinfo" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-4">
             <div class="col-md-6">
-              <label for="name" class="visually-hidden">Your Name</label>
-              <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name" required>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
             </div>
             <div class="col-md-6">
-              <label for="email" class="visually-hidden">Your Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="Enter Your Email" required>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
             </div>
             <div class="col-md-12">
-              <label for="mobile" class="visually-hidden">Mobile Number</label>
-              <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Enter 10-digit mobile number" required>
+              <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}" style="  border-radius: 30px;">
             </div>
             <div class="col-md-12">
-              <label for="message" class="visually-hidden">Message</label>
-              <textarea id="message" name="message" class="form-control" placeholder="How can I help with your Web Design or Software project?" required></textarea>
+              <textarea id="message" name="message" class="form-control" rows="4" placeholder="How can I help with your Web Design or Software project?" required></textarea>
             </div>
 
-            <!-- CAPTCHA -->
+            <!-- CAPTCHA Section -->
+            <!-- <div class="col-md-12">
+              <div class="captcha-box d-flex align-items-center gap-3">
+                <label id="captcha-question" for="captcha-answer" style="font-weight: bold; margin-bottom: 0;"></label>
+                <input type="number" id="captcha-answer" class="form-control" style="width: 120px;" placeholder="Answer" required>
+              </div>
+            </div> -->
             <div class="col-md-12">
-              <label id="captcha-question" style="font-weight: bold;"></label>
-              <input type="text" id="captcha-answer" class="form-control" placeholder="Enter answer" required>
-            </div>
+                  <label id="captcha-question" style="font-weight: bold;"></label>
+                  <input type="text" id="captcha-answer" class="form-control" placeholder="Enter answer" required>
+                </div>
 
             <div class="col-md-12 text-center">
-              <button type="submit">Send Message for IT Consultation</button>
+              <button type="submit" id="submit-btn">Send Message for IT Consultation</button>
             </div>
 
-            <div id="status" class="mt-2 text-center"></div>
+            <!-- Status Messages -->
+            <div id="status" class="mt-3 text-center" style="font-weight: 500;"></div>
+            <div id="fallback" class="mt-2 text-center"></div>
           </div>
         </form>
       </div>
