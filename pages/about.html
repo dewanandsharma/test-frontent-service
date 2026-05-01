@@ -179,184 +179,114 @@
       </div>
     </header>
 
-    <main class="main">
-      <!--------------------------- top banner Section ------------------>
-      <section id="hero" class="hero section light-background">
-        <img
-          src="../assets/img/allbg.png"
-          alt="Professional freelance web design and website development team"
-          data-aos="fade-in"
-        />
-        <div class="container position-relative">
-          <div
-            class="welcome position-relative"
-            data-aos="fade-down"
-            data-aos-delay="100"
-          >
-            <h1>About Ankush Infotech - Freelance IT Company in Mumbai Offering Web Development & Software Solutions</h1>
-            <p>
-              AnkushInfotech is a professional freelance IT services provider led by Ankush Sharma, a Full-Stack Developer with MCA qualification and 4+ years of hands-on experience. We specialize in web design, software development, mobile app development, SEO services, and digital marketing across Mumbai, Maharashtra, and India. Our expertise includes HTML, CSS, JavaScript, React.js, Angular.js, Node.js, PHP, C#, Python, and databases like SQL Server, MongoDB, and PostgreSQL. We deliver fast, responsive, SEO-friendly, and scalable digital solutions tailored to your business needs.
-            </p>
+ <main class="main">
+  <!-- Hero Section with Organization & Person Metadata -->
+  <section id="hero" class="hero section light-background" itemscope itemtype="https://schema.org/ProfessionalService">
+    <meta itemprop="name" content="Ankush Infotech" />
+    <meta itemprop="founder" content="Ankush Sharma" />
+    <meta itemprop="address" content="Kandivali West, Mumbai, Maharashtra, India" />
+
+    <img src="../assets/img/allbg.png" 
+         alt="Ankush Infotech - Professional freelance web design and website development team in Mumbai" 
+         data-aos="fade-in" 
+         itemprop="image" />
+    
+    <div class="container position-relative">
+      <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+        <h1 itemprop="headline">About Ankush Infotech - Freelance IT Company in Mumbai Offering Web Development & Software Solutions</h1>
+        <p itemprop="description">
+          AnkushInfotech is a professional freelance IT services provider led by <strong>Ankush Sharma</strong>, a 
+          <span itemprop="jobTitle">Full-Stack Developer</span> with MCA qualification and 4+ years of hands-on experience. 
+          We specialize in <strong>web design</strong>, <strong>software development</strong>, <strong>mobile app development</strong>, 
+          <strong>SEO services</strong>, and <strong>digital marketing</strong> across Mumbai, Maharashtra, and India. 
+          Our expertise includes HTML, CSS, JavaScript, React.js, Angular.js, Node.js, PHP, C#, Python, and databases like 
+          SQL Server, MongoDB, and PostgreSQL.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Background with Educational & Skill Metadata -->
+  <section id="professional-background" class="section" itemscope itemtype="https://schema.org/Person">
+    <meta itemprop="name" content="Ankush Sharma" />
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-12">
+          <div class="section-title text-center" data-aos="fade-up">
+            <h2>Professional Background & Qualifications - Freelance Web Design & Software Development Expert</h2>
           </div>
-          <!-- End Welcome -->
         </div>
-      </section>
-      <!-- /Hero Section -->
-      <!------------------------- About Section -------------------->
 
-      <!-- <section id="about" class="about section">
-      <div class="container">
-        <div class="row gy-4 gx-5">
-          <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-            <img src="../assets/img/aboutimagesss.png" class="img-fluid"
-              alt="School website design,Hospital management software,Software for educational institutions,College website redesign" style="border-radius: 10px;">
-         
+        <!-- Educational Qualification -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+            <div class="card-body">
+              <h4><i class="bi bi-mortarboard text-primary"></i> Educational Qualification</h4>
+              <ul class="list-unstyled">
+                <li><strong itemprop="hasCredential">Master of Computer Applications (MCA)</strong></li>
+                <li>Specialized in <span itemprop="knowsAbout">Software Development & System Design</span></li>
+                <li>Advanced coursework in Database Management and Software Engineering</li>
+                <li>Strong foundation in Computer Science fundamentals</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <h2>Our Services</h2>
-            <p>
-              We offer professional freelance services including web design, software development, SEO, mobile app
-              development, UI/UX design, and digital marketing. Hire expert freelancers to build responsive websites,
-              scalable applications, and SEO-friendly solutions that grow your business online. Contact us today for
-              affordable, high-quality digital services tailored to your goals.
-            </p>
-            <ul>
+        </div>
 
-              <li>
-                <div>
-                  <p>1.<b>Your dedicated freelance software workplace</b>:- Boost productivity with a reliable freelance
-                    software workspace tailored for developers, startups, and remote teams seeking efficient
-                    collaboration and flexible coding environments.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>2.<b>Operates as a dynamic freelance software workplace</b>:- Experience a powerful, flexible, and
-                    secure freelance software platform designed for agile developers and fast-paced projects with
-                    real-time updates and smooth integrations.</p>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>3.<b>A collaborative freelance software workplace</b>:- Work together seamlessly in a cloud-based
-                    software environment built for freelancers, where collaboration meets innovation and project goals
-                    are achieved faster.</p>
-                </div>
-              </li>
+        <!-- Professional Experience -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4><i class="bi bi-briefcase text-primary"></i> Professional Experience</h4>
+              <ul class="list-unstyled">
+                <li><strong>4+ Years in Full-Stack Development</strong></li>
+                <li itemprop="knowsAbout">Frontend: HTML5, CSS3, JavaScript, React.js, Angular.js</li>
+                <li itemprop="knowsAbout">Backend: Node.js, PHP, C#, Python</li>
+                <li itemprop="knowsAbout">Databases: SQL Server, MongoDB, PostgreSQL, MySQL</li>
+                <li>Specialized in responsive design and SEO optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-              <li>
-                <div>
-                  <p>4.<b>Custom freelance software development hub</b>:- Build custom apps, manage code, and streamline
-                    workflows in a feature-rich freelance development hub tailored to your unique tech need</p>
+        <!-- Core Competencies as Service Offerings -->
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="card">
+            <div class="card-body">
+              <h4><i class="bi bi-award text-primary"></i> Core Competencies</h4>
+              <div class="row">
+                <div class="col-md-4">
+                  <h6>Web Development</h6>
+                  <ul itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                    <li itemprop="itemListElement">Custom Website Development</li>
+                    <li itemprop="itemListElement">E-commerce Solutions</li>
+                    <li itemprop="itemListElement">Content Management Systems</li>
+                  </ul>
                 </div>
-
-              </li>
-            </ul>
+                <div class="col-md-4">
+                  <h6>Software Development</h6>
+                  <ul>
+                    <li>Enterprise Applications</li>
+                    <li>API Development & Integration</li>
+                    <li>Database Design & Optimization</li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <h6>Digital Marketing</h6>
+                  <ul>
+                    <li>Search Engine Optimization (SEO)</li>
+                    <li>Technical SEO Implementation</li>
+                    <li>Performance Optimization</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </div>
+  </section>
+</main>
 
-      <!-- /About Section -->
-
-      <!-- Professional Background Section -->
-      <section id="professional-background" class="section">
-        <div class="container">
-          <div class="row gy-4">
-            <div class="col-lg-12">
-              <div class="section-title text-center" data-aos="fade-up">
-                <h2>Professional Background & Qualifications - Freelance Web Design & Software Development Expert</h2>
-              </div>
-            </div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h4>
-                    <i class="bi bi-mortarboard text-primary"></i> Educational
-                    Qualification
-                  </h4>
-                  <ul class="list-unstyled">
-                    <li>
-                      <strong>Master of Computer Applications (MCA)</strong>
-                    </li>
-                    <li>Specialized in Software Development & System Design</li>
-                    <li>
-                      Advanced coursework in Database Management, Web
-                      Technologies, and Software Engineering
-                    </li>
-                    <li>Strong foundation in Computer Science fundamentals</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h4>
-                    <i class="bi bi-briefcase text-primary"></i> Professional
-                    Experience
-                  </h4>
-                  <ul class="list-unstyled">
-                    <li>
-                      <strong>4+ Years in Full-Stack Development</strong>
-                    </li>
-                    <li>
-                      Frontend: HTML5, CSS3, JavaScript, React.js, Angular.js
-                    </li>
-                    <li>Backend: Node.js, PHP, C#, Python</li>
-                    <li>Databases: SQL Server, MongoDB, PostgreSQL</li>
-                    <li>
-                      Specialized in responsive design and SEO optimization
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-              <div class="card">
-                <div class="card-body">
-                  <h4>
-                    <i class="bi bi-award text-primary"></i> Core Competencies
-                  </h4>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <h6>Web Development</h6>
-                      <ul>
-                        <li>Custom Website Development</li>
-                        <li>E-commerce Solutions</li>
-                        <li>Content Management Systems</li>
-                        <li>Progressive Web Apps</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-4">
-                      <h6>Software Development</h6>
-                      <ul>
-                        <li>Enterprise Applications</li>
-                        <li>API Development & Integration</li>
-                        <li>Database Design & Optimization</li>
-                        <li>Cloud-based Solutions</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-4">
-                      <h6>Digital Marketing</h6>
-                      <ul>
-                        <li>Search Engine Optimization</li>
-                        <li>Technical SEO Implementation</li>
-                        <li>Performance Optimization</li>
-                        <li>Analytics & Reporting</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
     <!-------------------------- Footer Section ----------------------------->
 
     <footer id="footer" class="footer light-background">
@@ -552,3 +482,131 @@
     <script src="../assets/js/fastloading.js"></script>
   </body>
 </html>
+
+
+
+
+ <!-- <main class="main">
+   
+      <section id="hero" class="hero section light-background">
+        <img
+          src="../assets/img/allbg.png"
+          alt="Professional freelance web design and website development team"
+          data-aos="fade-in"
+        />
+        <div class="container position-relative">
+          <div
+            class="welcome position-relative"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            <h1>About Ankush Infotech - Freelance IT Company in Mumbai Offering Web Development & Software Solutions</h1>
+            <p>
+              AnkushInfotech is a professional freelance IT services provider led by Ankush Sharma, a Full-Stack Developer with MCA qualification and 4+ years of hands-on experience. We specialize in web design, software development, mobile app development, SEO services, and digital marketing across Mumbai, Maharashtra, and India. Our expertise includes HTML, CSS, JavaScript, React.js, Angular.js, Node.js, PHP, C#, Python, and databases like SQL Server, MongoDB, and PostgreSQL. We deliver fast, responsive, SEO-friendly, and scalable digital solutions tailored to your business needs.
+            </p>
+          </div>
+       
+        </div>
+      </section>
+     
+       
+   
+
+     
+      <section id="professional-background" class="section">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-12">
+              <div class="section-title text-center" data-aos="fade-up">
+                <h2>Professional Background & Qualifications - Freelance Web Design & Software Development Expert</h2>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-mortarboard text-primary"></i> Educational
+                    Qualification
+                  </h4>
+                  <ul class="list-unstyled">
+                    <li>
+                      <strong>Master of Computer Applications (MCA)</strong>
+                    </li>
+                    <li>Specialized in Software Development & System Design</li>
+                    <li>
+                      Advanced coursework in Database Management, Web
+                      Technologies, and Software Engineering
+                    </li>
+                    <li>Strong foundation in Computer Science fundamentals</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-briefcase text-primary"></i> Professional
+                    Experience
+                  </h4>
+                  <ul class="list-unstyled">
+                    <li>
+                      <strong>4+ Years in Full-Stack Development</strong>
+                    </li>
+                    <li>
+                      Frontend: HTML5, CSS3, JavaScript, React.js, Angular.js
+                    </li>
+                    <li>Backend: Node.js, PHP, C#, Python</li>
+                    <li>Databases: SQL Server, MongoDB, PostgreSQL</li>
+                    <li>
+                      Specialized in responsive design and SEO optimization
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+              <div class="card">
+                <div class="card-body">
+                  <h4>
+                    <i class="bi bi-award text-primary"></i> Core Competencies
+                  </h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h6>Web Development</h6>
+                      <ul>
+                        <li>Custom Website Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Content Management Systems</li>
+                        <li>Progressive Web Apps</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h6>Software Development</h6>
+                      <ul>
+                        <li>Enterprise Applications</li>
+                        <li>API Development & Integration</li>
+                        <li>Database Design & Optimization</li>
+                        <li>Cloud-based Solutions</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h6>Digital Marketing</h6>
+                      <ul>
+                        <li>Search Engine Optimization</li>
+                        <li>Technical SEO Implementation</li>
+                        <li>Performance Optimization</li>
+                        <li>Analytics & Reporting</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main> -->
