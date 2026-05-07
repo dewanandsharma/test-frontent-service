@@ -102,18 +102,29 @@
     }
     </script>
 
-    <!-- Global Site Tag -->
-    <script async
-      src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZJV3V687JX');
-    </script>
-    <script async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304"
-      crossorigin="anonymous"></script>
+ 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Default everything to denied until user clicks "Accept"
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-ZJV3V687JX');
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304" crossorigin="anonymous"></script>
+
 
     <!-- Regional Metadata -->
     <meta name="geo.region" content="IN-MH">
