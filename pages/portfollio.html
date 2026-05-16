@@ -115,11 +115,12 @@
     </script>
 
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-
-  // Default everything to denied until user clicks "Accept"
+  
+  // 1. Set default consent states BEFORE initialization
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'ad_user_data': 'denied',
@@ -127,14 +128,9 @@
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-</script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  // 2. Initialize tracking
   gtag('js', new Date());
-
   gtag('config', 'G-ZJV3V687JX');
 </script>
 

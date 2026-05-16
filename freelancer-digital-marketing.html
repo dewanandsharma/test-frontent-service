@@ -86,23 +86,24 @@
       }
     </script>
 
-    <!-- Google Tag Manager / Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Consent Mode V2 (Required for 2024+ SEO/Ads compliance)
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
-      
-      gtag('js', new Date());
-      gtag('config', 'G-ZJV3V687JX');
-    </script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // 1. Set default consent states BEFORE initialization
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+
+  // 2. Initialize tracking
+  gtag('js', new Date());
+  gtag('config', 'G-ZJV3V687JX');
+</script>
 
     <!-- AdSense (Optional: Only keep if you are showing ads on your own site) -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304" crossorigin="anonymous"></script>
