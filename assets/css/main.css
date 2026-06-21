@@ -260,7 +260,7 @@ html, body {
 body {
     font-family: 'Oswald', sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     color: #333;
 }
 
