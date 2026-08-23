@@ -147,30 +147,17 @@
       }
     </script>
 
-    <!-- Analytics & Ads -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      // 1. Set default consent states BEFORE initialization
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        wait_for_update: 500,
-      });
+  gtag('config', 'G-ZJV3V687JX');
+</script>
 
-      // 2. Initialize tracking
-      gtag("js", new Date());
-      gtag("config", "G-ZJV3V687JX");
-    </script>
+
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9332831795685304"

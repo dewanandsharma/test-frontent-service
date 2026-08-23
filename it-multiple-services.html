@@ -161,30 +161,15 @@
       }
     </script>
 
-    <!-- 11. Third-Party Scripts (Analytics & Adsense) -->
-    <!-- Google Tag Manager (GTAG) with Consent Mode -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJV3V687JX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag("consent", "default", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        analytics_storage: "denied",
-        wait_for_update: 500,
-      });
-
-      gtag("js", new Date());
-      gtag("config", "G-ZJV3V687JX");
-    </script>
-
+  gtag('config', 'G-ZJV3V687JX');
+</script>
     <!-- Google AdSense -->
     <script
       async
