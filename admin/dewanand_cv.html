@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dewanand Sharma - Modern CV</title>
+    <!-- Google Font for modern, clean typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #1e293b;
+        --accent: #2563eb;
+        --accent-light: #eff6ff;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --bg-body: #f8fafc;
+        --card-bg: #ffffff;
+        --border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-body);
+        color: var(--text-dark);
+        line-height: 1.6;
+        padding: 40px 20px;
+      }
+
+      .resume-container {
+        max-width: 960px;
+        margin: 0 auto;
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.05),
+          0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      /* Modern Hero Header */
+      header {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #ffffff;
+        padding: 45px 50px;
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 6px;
+      }
+
+      .subtitle {
+        color: #60a5fa;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 24px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 14px;
+        color: #cbd5e1;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-item strong {
+        color: #94a3b8;
+        font-weight: 500;
+      }
+
+      /* Content Layout */
+      .content-body {
+        padding: 40px 50px;
+      }
+
+      .summary-section {
+        margin-bottom: 35px;
+      }
+
+      .summary-section p {
+        font-size: 15px;
+        color: #334155;
+        line-height: 1.7;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1.8fr 1.2fr;
+        gap: 40px;
+      }
+
+      section {
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent);
+        margin-bottom: 20px;
+      }
+
+      /* Experience / Jobs Card Styling */
+      .job {
+        position: relative;
+        padding-left: 20px;
+        border-left: 2px solid var(--border);
+        margin-bottom: 24px;
+      }
+
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .job-title {
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--text-dark);
+      }
+
+      .company-date {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--text-muted);
+        margin: 2px 0 10px 0;
+        font-weight: 500;
+      }
+
+      ul {
+        padding-left: 18px;
+        font-size: 14px;
+        color: #334155;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      li a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      li a:hover {
+        text-decoration: underline;
+      }
+
+      /* Skills Badges */
+      .skills-group {
+        margin-bottom: 18px;
+      }
+
+      .skills-group h3 {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-badge {
+        background-color: var(--accent-light);
+        color: var(--accent);
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        border: 1px solid #dbeafe;
+      }
+
+      /* Modern Links List */
+      .portfolio-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .portfolio-list li {
+        margin-bottom: 8px;
+      }
+
+      .portfolio-list a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+
+      .portfolio-list a:hover {
+        transform: translateX(3px);
+        text-decoration: underline;
+      }
+
+      /* Print Optimization */
+      @media print {
+        body {
+          background: none;
+          padding: 0;
+        }
+        .resume-container {
+          box-shadow: none;
+          border: none;
+          max-width: 100%;
+        }
+        header {
+          background: #1e293b !important;
+          -webkit-print-color-adjust: exact;
+        }
+        .content-body {
+          padding: 30px;
+        }
+        .skill-badge {
+          border: 1px solid var(--border);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        header,
+        .content-body {
+          padding: 25px;
+        }
+        .contact-info {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .company-date {
+          flex-direction: column;
+          margin-bottom: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- Header -->
+      <header>
+        <h1>Dewanand Sharma</h1>
+        <div class="subtitle">
+          Full-Stack Software Developer 
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <strong>Phone:</strong> +91 870-723-5841
+          </div>
+          <div class="contact-item">
+            <strong>Email:</strong> dewanandshrama143@gmail.com
+          </div>
+          <div class="contact-item">
+            <strong>Location:</strong> Kandivali, Mumbai, IN
+          </div>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <!-- Professional Summary -->
+        <section class="summary-section">
+          <h2>Professional Summary</h2>
+          <p>
+            Highly skilled Full-Stack Developer with 4.3 years of hands-on
+            experience in creating user-friendly, secure, and highly scalable
+            web applications. Proven track record of designing, developing, and
+            deploying high-quality software solutions across both front-end and
+            back-end ecosystems. Adept at leading development workflows,
+            managing code repositories with Git, troubleshooting complex
+            systems, and consistently delivering robust projects on time.
+          </p>
+        </section>
+
+        <!-- Two Column Main Content -->
+        <div class="main-content">
+          <!-- Left Column: Experience & Education -->
+          <div class="left-col">
+            <section>
+              <h2>Work Experience & Key Projects</h2>
+
+              <!-- Current Company -->
+              <!-- <div class="job">
+                        <div class="job-title">Full-Stack Software Developer</div>
+                        <div class="company-date">
+                            <span>Planetdezign Pvt. Ltd.</span>
+                            <span>Feb 2026 – Present</span>
+                        </div>
+                      <ul>
+    <li>Architecting, developing, and maintaining scalable full-stack web applications for diverse client projects.</li>
+    <li>Integrating secure back-end APIs with responsive, intuitive front-end interfaces to optimize performance.</li>
+    <li>Managing end-to-end web deployment, site launches, domain setups, and ongoing server-side maintenance.</li>
+    <li>Implementing technical SEO best practices to improve search visibility, traffic, and overall site performance.</li>
+    <li>Website: <a href="https://planetdezign.com/" target="_blank" rel="noopener">planetdezign.com</a></li>
+</ul>
+                    </div> -->
+
+              <div class="job">
+                <div class="job-title">Full-Stack Software Developer</div>
+                <div class="company-date">
+                  <span>Planetdezign Pvt. Ltd.</span>
+                  <span>Feb 2026 – Present</span>
+                </div>
+                <ul>
+                  <li>
+                    Architecting, developing, and maintaining end-to-end
+                    full-stack web applications for dynamic client projects.
+                  </li>
+                  <li>
+                    Integrating secure back-end APIs, databases, and
+                    authentication systems with modern, responsive front-end
+                    interfaces.
+                  </li>
+                  <li>
+                    Executing technical SEO strategies, site optimization, and
+                    performance tuning to maximize search visibility.
+                  </li>
+                  <li>
+                    Managing domain DNS configurations (MX, SPF, DKIM, TXT) and
+                    Google Workspace professional email setups.
+                  </li>
+                  <li>
+                    Handling end-to-end website deployments, server
+                    configurations, domain mappings, and live production
+                    maintenance.
+                  </li>
+                  <!-- <li>Website: <a href="https://planetdezign.com/" target="_blank">planetdezign.com</a></li> -->
+                </ul>
+              </div>
+              <!-- Previous Experience -->
+              <div class="job">
+                <div class="job-title">Lead Web Developer & SEO Specialist</div>
+                <div class="company-date">
+                  <span>Ankush Concrete Works Web Platform</span>
+                  <span>Late 2025</span>
+                </div>
+                <ul>
+                  <li>
+                    Developed and launched the online commercial business portal
+                    for Ankush Concrete Works to showcase top-grade RCC and
+                    cement products across Maharashtra.
+                  </li>
+                  <li>
+                    Implemented clean code, technical SEO, and mobile-responsive
+                    architectures to drive business leads.
+                  </li>
+                  <!-- <li>Website: <a href="https://ankushconcrete.com" target="_blank">ankushconcrete.com</a></li> -->
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="job-title">Full-Stack Developer</div>
+                <div class="company-date">
+                  <span>Government Solar Energy & Home Portal</span>
+                  <span>Jan 2024</span>
+                </div>
+                <ul>
+                  <li>
+                    Designed and built an online platform facilitating solar
+                    system procurement for individuals and farmers.
+                  </li>
+                  <li>
+                    Connected prospective buyers with trusted energy solution
+                    providers, streamlining payment gateways, offering tailored
+                    energy listings, and simplifying sustainable adoption.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="job-title">
+                  Software Developer / Website Maintenance
+                </div>
+                <div class="company-date">
+                  <span
+                    >Government On-Grid Solar Irrigation Portal</span
+                    </span
+                  >
+                  <span>Feb 2023 </span>
+                </div>
+                <ul>
+                  <li>
+                    Engineered and maintained the web application for the Uttar
+                    Pradesh government's initiative promoting the solarization
+                    of on-grid connected agricultural pumps.
+                  </li>
+                  <li>
+                    Ensured platform stability, fast response times, and robust
+                    data management for state-wide farmer enrollments and
+                    tracking.
+                  </li>
+                  <!-- <li>Platforms: <a href="https://upnedakusumc1.in" target="_blank">upnedakusumc1.in</a> | <a href="https://upnedakusumc2.in" target="_blank">upnedakusumc2.in</a></li> -->
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <h2>Education</h2>
+              <div class="job">
+                <div class="job-title">
+                  Master of Computer Applications (MCA)
+                </div>
+                <div class="company-date">
+                  <span
+                    >International Institute for Special Education (IISE),
+                    Lucknow (AKTU)</span
+                  >
+                  <!-- <span>2018 – 2021</span> -->
+                </div>
+              </div>
+              <div class="job">
+                <div class="job-title">Bachelor of Science (B.Sc.)</div>
+                <div class="company-date">
+                  <span>Swami Vivekanand Subharti University, Meerut</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column: Skills, Portfolio, Languages -->
+          <div class="right-col">
+            <section>
+              <h2>Technical Expertise</h2>
+
+              <div class="skills-group">
+                <h3>Languages & Back-End</h3>
+                <div class="skills-list">
+                  <span class="skill-badge">C#</span>
+                  <span class="skill-badge">PHP</span>
+                  <span class="skill-badge">Node.js</span>
+                  <span class="skill-badge">REST APIs</span>
+                  <span class="skill-badge">JWT</span>
+                </div>
+              </div>
+
+              <div class="skills-group">
+                <h3>Front-End & Mobile</h3>
+                <div class="skills-list">
+                  <span class="skill-badge">React.js</span>
+                  <span class="skill-badge">Flutter</span>
+                  <span class="skill-badge">JavaScript</span>
+                  <span class="skill-badge">jQuery</span>
+                  <span class="skill-badge">Ajax</span>
+                  <span class="skill-badge">HTML5 & CSS3</span>
+                  <span class="skill-badge">Bootstrap</span>
+                </div>
+              </div>
+
+              <div class="skills-group">
+                <h3>Databases & CMS</h3>
+                <div class="skills-list">
+                  <span class="skill-badge">MySQL</span>
+                  <span class="skill-badge">SQL Server</span>
+                  <span class="skill-badge">PostgreSQL</span>
+                  <span class="skill-badge">WordPress</span>
+                </div>
+              </div>
+
+              <div class="skills-group">
+                <h3>Tools & Optimization</h3>
+                <div class="skills-list">
+                  <span class="skill-badge">Git & GitHub</span>
+                  <span class="skill-badge">Postman</span>
+                  <span class="skill-badge">Basic SEO</span>
+                  <span class="skill-badge">Project Deployment</span>
+                  <span class="skill-badge">GBP Setup</span>
+                </div>
+              </div>
+
+              <div class="skills-group">
+                <h3>AI & Creative Solutions</h3>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--text-dark);
+                    line-height: 1.5;
+                  "
+                >
+                  Implementing AI models, interactive web animations, modern
+                  UI/UX design, SEO optimization, and responsive mobile
+                  development.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2>Web Portfolio</h2>
+              <ul class="portfolio-list">
+                <li>
+                  <a href="https://planetdezign.com" target="_blank"
+                    >🌐 planetdezign.com</a
+                  >
+                </li>
+                <li>
+                  <a href="https://upnedakusumc1.in" target="_blank"
+                    >🌐 upnedakusumc1.in</a
+                  >
+                </li>
+                <li>
+                  <a href="https://upnedakusumc2.in" target="_blank"
+                    >🌐 upnedakusumc2.in</a
+                  >
+                </li>
+                <li>
+                  <a href="https://ankushconcrete.com" target="_blank"
+                    >🌐 ankushconcrete.com</a
+                  >
+                </li>
+                <li>
+                  <a href="https://sharadmishra.com" target="_blank"
+                    >🌐 sharadmishra.com</a
+                  >
+                </li>
+                <li>
+                  <a href="https://anandautsavpuja.com" target="_blank"
+                    >🌐 anandautsavpuja.com</a
+                  >
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Languages</h2>
+              <p style="font-size: 14px; color: #334155">English, Hindi</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
