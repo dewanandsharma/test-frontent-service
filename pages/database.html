@@ -94,6 +94,27 @@
 
     <style>
       .hero .welcome h1, .hero .welcome p { color: white; }
+
+      /* Responsive Image Styling */
+.tech-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.service-item:hover .tech-icon {
+  transform: scale(1.1);
+}
+
+/* Mobile Screen Scaling */
+@media (max-width: 576px) {
+  .tech-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
     </style>
 </head>
 
@@ -245,37 +266,20 @@
     </section><!-- /Hero Section -->
 
 
-    <!-------------------------- Database Section -------------------------->
-    <section id="services" class="services section">
 
-      <!-- Section Title -->
+    <!-------------------------- Database Section 1-------------------------->
+    <!-- <section id="services" class="services section">
+
+      
       <div class="container section-title" data-aos="fade-up">
         <h2>Our Technology Stack & Database Services - Freelance Development Expertise</h2>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
 
-        <!-- AdSense Rectangle Ad previous code -->
-        <!-- <div class="text-center mb-4">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-9332831795685304"
-               data-ad-slot="9876543210"
-               data-ad-format="rectangle"></ins>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div> -->
+       
 
 
-        <!-- ✅ Ad after heading new code -->
-  <!-- <div class="container text-center mb-4">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9332831795685304"
-         data-ad-slot="9876543210"
-         data-ad-format="rectangle"></ins>
-  </div> -->
 
 
         <div class="row gy-4">
@@ -284,42 +288,42 @@
                 <h3>MySQL</h3>
               </a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item  position-relative">         
                 <h3>SQL Server</h3>
               </a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">           
                 <h3>PostgreSQL</h3>
               </a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">           
                 <h3>MongoDB</h3>
               </a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">            
                 <h3>AWS</h3>
               </a>           
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">            
                 <h3>Node.js</h3>
               </a>           
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -327,7 +331,7 @@
                 <h3>Flutter</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
@@ -336,7 +340,7 @@
                 <h3>PHP</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -344,14 +348,14 @@
                 <h3>Docker</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-item position-relative">
                 <h3>APIs</h3>
               </a>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -359,7 +363,7 @@
                 <h3>C#</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -367,7 +371,7 @@
                 <h3>JavaScript</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -375,7 +379,7 @@
                 <h3>jquery</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
@@ -384,7 +388,7 @@
                 <h3>Angular.js</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -392,7 +396,7 @@
                 <h3>Flask</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -400,7 +404,7 @@
                 <h3>Python</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -408,7 +412,7 @@
                 <h3>React.js</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -416,7 +420,7 @@
                 <h3>Laravel</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -424,7 +428,7 @@
                 <h3>Figma Design</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -432,7 +436,7 @@
                 <h3>Html,Css,Bootstrap</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-item position-relative">
@@ -440,13 +444,262 @@
                 <h3>WordPress</h3>
               </div>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Services Section -->
+    </section> -->
+    <!-- /Services Section -->
+
+
+    <!-------------------------- Database & Tech Stack Section -------------------------->
+<section id="tech-stack" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Technology Stack &amp; Database Engineering Services</h2>
+    <p>Full-Stack Web Development, Cloud Solutions, Mobile Apps, and Enterprise Database Architecture by Ankush Infotech</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+
+      <!-- MySQL -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL Database Management Service - Ankush Infotech" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">MySQL</h3>
+            <p class="m-0 text-muted fs-6">Relational database design, query optimization, and secure PHP PDO backend integration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL Server -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="Microsoft SQL Server Database Administration" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">SQL Server</h3>
+            <p class="m-0 text-muted fs-6">Enterprise T-SQL architecture, indexing, stored procedures, and migration services.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PostgreSQL -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL Database Architecture" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">PostgreSQL</h3>
+            <p class="m-0 text-muted fs-6">Scalable object-relational database management for high-concurrency web systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MongoDB -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB NoSQL Database Integration" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">MongoDB</h3>
+            <p class="m-0 text-muted fs-6">High-performance NoSQL document databases for flexible MERN stack web applications.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS Cloud Hosting and Server Deployment" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">AWS Cloud</h3>
+            <p class="m-0 text-muted fs-6">Cloud server hosting, EC2 instances, S3 storage, and domain configuration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node.js -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js Backend Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Node.js</h3>
+            <p class="m-0 text-muted fs-6">Asynchronous, event-driven server-side JavaScript applications and REST microservices.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flutter -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter Cross-Platform Mobile App Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Flutter</h3>
+            <p class="m-0 text-muted fs-6">Cross-platform iOS and Android native mobile app development using Dart.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHP -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP Web Application Engineering" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">PHP</h3>
+            <p class="m-0 text-muted fs-6">Custom server-side scripting, OOP architecture, and dynamic website backend engine.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Docker -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Containerization and Deployment" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Docker</h3>
+            <p class="m-0 text-muted fs-6">Containerized application deployment for smooth, reliable, multi-environment execution.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- APIs -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://www.svgrepo.com/show/353900/api.svg" alt="REST API Development and Integration Services" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">REST APIs</h3>
+            <p class="m-0 text-muted fs-6">Third-party web service API integrations including WhatsApp API, OpenAI, and Payment Gateways.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- C# -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C# DotNet Enterprise Software Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">C# / .NET</h3>
+            <p class="m-0 text-muted fs-6">Enterprise desktop applications, object-oriented software logic, and .NET solutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Interactive Web Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">JavaScript</h3>
+            <p class="m-0 text-muted fs-6">Modern ES6+ client-side logic, interactive web interfaces, and dynamic DOM manipulation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- jQuery -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" alt="jQuery Scripting Solutions" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">jQuery</h3>
+            <p class="m-0 text-muted fs-6">Lightweight JavaScript library scripting for smooth animations, AJAX, and fast UI interaction.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angular -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular Framework Frontend Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Angular</h3>
+            <p class="m-0 text-muted fs-6">Robust TypeScript frontend framework for scalable single-page web applications (SPAs).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Python & Flask -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python Application and Scripting Solutions" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Python &amp; Flask</h3>
+            <p class="m-0 text-muted fs-6">Clean Python web backend services, micro-framework APIs, and data processing scripts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- React.js -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js Single Page Web Applications" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">React.js</h3>
+            <p class="m-0 text-muted fs-6">Component-driven reactive user interfaces built for speed, scalability, and UX performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laravel -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel PHP Framework Solutions" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Laravel</h3>
+            <p class="m-0 text-muted fs-6">Elegant MVC PHP framework for secure web apps, authentication, and database migrations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Figma UI/UX -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma UI UX Interface Design and Prototyping" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">Figma UI/UX</h3>
+            <p class="m-0 text-muted fs-6">Interactive wireframing, high-fidelity web app design prototypes, and brand vector design.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML5 / CSS3 / Bootstrap -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1000">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Responsive HTML5 CSS3 and Bootstrap Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">HTML, CSS &amp; Bootstrap</h3>
+            <p class="m-0 text-muted fs-6">Mobile-first responsive layouts, WCAG accessibility standards, and clean CSS styling.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WordPress -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1000">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress Custom Theme and Plugin Development" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">WordPress</h3>
+            <p class="m-0 text-muted fs-6">Custom theme creation, WooCommerce e-commerce setup, and performance optimization.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Models & Gemini -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1100">
+        <div class="service-item position-relative p-4 d-flex align-items-center gap-3 h-100">
+          <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a611eb.svg" alt="AI Models Integration and Google Gemini Solutions - Ankush Infotech" width="56" height="56" class="img-fluid flex-shrink-0 tech-icon" loading="lazy" />
+          <div>
+            <h3 class="m-0 fs-5 fw-bold">AI Models &amp; Gemini API</h3>
+            <p class="m-0 text-muted fs-6">Custom LLM integration, Google Gemini API, OpenAI GPT-4, autonomous AI agents, and RAG architectures.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- AdSense In-feed Ad Previous code-->
     <!-- <section class="py-4">
