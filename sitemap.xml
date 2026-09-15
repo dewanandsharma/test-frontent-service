@@ -73,12 +73,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
-   <url>
-    <loc>https://ankushinfotech.com/admin-login</loc>
-    <lastmod>2026-04-15T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
 </urlset>
 
 
