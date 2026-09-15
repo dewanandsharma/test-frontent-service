@@ -30,7 +30,6 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    # FIXED CSP: Added Google Ads, Fonts, and GTM support
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://adservice.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: https://pagead2.googlesyndication.com; font-src 'self' data: https://fonts.gstatic.com; frame-src https://googleads.g.doubleclick.net https://www.google.com;"
 
 [[headers]]
@@ -39,22 +38,41 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # -------------------------
-# Domain Canonicalization (Force Non-WWW & HTTPS)
+# Domain Canonicalization (Force Non-WWW & HTTPS in 1 Step)
 # -------------------------
-[[redirects]]
-  from = "https://www.ankushinfotech.com/*"
-  to = "https://ankushinfotech.com/:splat"
-  status = 301
-  force = true
-
 [[redirects]]
   from = "http://ankushinfotech.com/*"
   to = "https://ankushinfotech.com/:splat"
   status = 301
   force = true
 
+[[redirects]]
+  from = "http://www.ankushinfotech.com/*"
+  to = "https://ankushinfotech.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.ankushinfotech.com/*"
+  to = "https://ankushinfotech.com/:splat"
+  status = 301
+  force = true
+
 # -------------------------
-# Clean URL Rewrites for New SEO Pages
+# Index Cleanups
+# -------------------------
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# -------------------------
+# Clean URL Rewrites
 # -------------------------
 [[redirects]]
   from = "/seo-services"
@@ -68,22 +86,11 @@
 
 [[redirects]]
   from = "/ui-ux-design-web-development"
-  to = "/hire-ui-ux-web-design-website-developer-in-maharastra"
+  to = "/hire-ui-ux-web-design-website-developer-in-maharashtra.html"
   status = 200
 
-# Fix index duplicates
-[[redirects]]
-  from = "/index"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
-
 # -------------------------
-# 404 Error Handling
+# 404 Error Handling (MUST ALWAYS BE LAST)
 # -------------------------
 [[redirects]]
   from = "/*"
