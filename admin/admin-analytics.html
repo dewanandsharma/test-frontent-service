@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Visitor & Location Analytics - Ankush Infotech</title>
+
+  <!-- Google Fonts & Bootstrap 5 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    :root {
+      --primary-color: #3b82f6;
+      --dark-bg: #0b1329;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .admin-header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px 30px;
+    }
+
+    /* Analytics Cards */
+    .stat-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .chart-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    /* Live User Details Highlight Card */
+    .user-info-badge {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 14px;
+      height: 100%;
+    }
+
+    /* Map Styling */
+    #visitorMap {
+      height: 380px;
+      width: 100%;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    /* Table Styling */
+    .custom-table {
+      color: var(--text-main);
+      margin-bottom: 0;
+    }
+
+    .custom-table th {
+      border-color: var(--border-color);
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      background-color: rgba(15, 23, 42, 0.4);
+    }
+
+    .custom-table td {
+      border-color: var(--border-color);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* Live Status Radar/Pulse Animation */
+    .live-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      margin-right: 6px;
+      box-shadow: 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse-ring 1.8s infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    .badge-live {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Admin Bar -->
+  <header class="admin-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div class="d-flex align-items-center gap-3">
+      <h4 class="m-0 fw-bold text-white">Ankush Infotech</h4>
+      <span class="badge badge-live px-3 py-2 rounded-pill d-flex align-items-center">
+        <span class="live-dot"></span> Live Analytics View
+      </span>
+    </div>
+    <div class="user-profile text-end">
+      <small class="text-muted d-block">Admin Dashboard</small>
+      <span class="fw-semibold">Ankush Sharma</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container-fluid py-4 px-3 px-md-4">
+
+    <!-- CURRENT LIVE VISITOR FULL DETAILS BANNER -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="chart-card border-primary">
+          <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+            <h5 class="fw-bold m-0 text-primary d-flex align-items-center">
+              <i class="bi bi-person-bounding-box me-2"></i> Current Visitor Live Detection
+            </h5>
+            <span class="badge bg-primary px-3 py-2 rounded-pill"><i class="bi bi-broadcast me-1"></i> Auto-Geolocated</span>
+          </div>
+          
+          <div class="row g-3" id="current-user-data-container">
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-router me-1"></i> IP Address</small>
+                <strong class="text-white" id="u-ip">0.0.0.0</strong>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-geo-alt me-1"></i> City & Region</small>
+                <strong class="text-white" id="u-city">Detecting...</strong>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-globe me-1"></i> Country</small>
+                <strong class="text-white" id="u-country">Detecting...</strong>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-laptop me-1"></i> Device / OS</small>
+                <strong class="text-white" id="u-os">Detecting...</strong>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-browser-chrome me-1"></i> Browser</small>
+                <strong class="text-white" id="u-browser">Detecting...</strong>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+              <div class="user-info-badge">
+                <small class="text-muted d-block"><i class="bi bi-wifi me-1"></i> Network ISP</small>
+                <strong class="text-white" id="u-isp">Detecting...</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Performance Indicators (KPIs) -->
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6 col-xl-3">
+        <div class="stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-muted small">Total Page Views</span>
+            <h3 class="fw-bold m-0 mt-1" id="totalViews">0</h3>
+            <small class="text-success"><i class="bi bi-arrow-up-right"></i> +18.4% this week</small>
+          </div>
+          <div class="stat-icon"><i class="bi bi-eye-fill"></i></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        <div class="stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-muted small">Unique Visitors</span>
+            <h3 class="fw-bold m-0 mt-1" id="uniqueVisitors">0</h3>
+            <small class="text-success"><i class="bi bi-arrow-up-right"></i> +12.1% growth</small>
+          </div>
+          <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        <div class="stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-muted small">Top Active Region</span>
+            <h3 class="fw-bold m-0 mt-1" id="topRegion">Detecting...</h3>
+            <small class="text-muted" id="topRegionShare">0% total traffic</small>
+          </div>
+          <div class="stat-icon"><i class="bi bi-geo-alt-fill"></i></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+        <div class="stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-muted small">Avg. Session Duration</span>
+            <h3 class="fw-bold m-0 mt-1">2m 45s</h3>
+            <small class="text-info"><i class="bi bi-clock-history"></i> High engagement</small>
+          </div>
+          <div class="stat-icon"><i class="bi bi-stopwatch-fill"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map & Device Graphs Row -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <div class="chart-card">
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h5 class="fw-semibold m-0"><i class="bi bi-globe-central-south me-2 text-primary"></i> Live Visitor Map (Global & Local)</h5>
+            <small class="text-muted">Real-Time IP Geolocation Pinning</small>
+          </div>
+          <div id="visitorMap"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="chart-card">
+          <h5 class="fw-semibold mb-3"><i class="bi bi-phone me-2 text-primary"></i> Visitor Device Share</h5>
+          <div style="height: 300px;" class="d-flex align-items-center justify-content-center">
+            <canvas id="deviceChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Active Visitor Detailed Logs Table -->
+    <div class="row g-4 mb-4">
+      <div class="col-12">
+        <div class="chart-card">
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h5 class="fw-semibold m-0"><i class="bi bi-list-columns-reverse me-2 text-primary"></i> Live Visitor Logs & Session Details</h5>
+            <span class="badge bg-secondary">Real-Time Log Stream</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table custom-table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>IP Address</th>
+                  <th>Location (City, Country)</th>
+                  <th>Browser & OS</th>
+                  <th>Network / ISP</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody id="detailedVisitorTable">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Traffic Trends & Top Locations Table Row -->
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="chart-card">
+          <h5 class="fw-semibold mb-3"><i class="bi bi-graph-up-arrow me-2 text-primary"></i> Daily Visitor Traffic Overview</h5>
+          <div style="height: 300px;">
+            <canvas id="trafficChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="chart-card">
+          <h5 class="fw-semibold mb-3"><i class="bi bi-building me-2 text-primary"></i> Top Cities Traffic</h5>
+          <div class="table-responsive">
+            <table class="table custom-table table-hover">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>State / Region</th>
+                  <th>Visitors</th>
+                  <th>Share %</th>
+                </tr>
+              </thead>
+              <tbody id="locationTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+    // 1. Number Counter Animation (Starts strictly from 0)
+    function animateCounter(id, targetValue, duration = 1500) {
+      const element = document.getElementById(id);
+      if (!element) return;
+      let startValue = 0;
+      const startTime = performance.now();
+
+      function updateNumber(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        const currentValue = Math.floor(progress * targetValue);
+        
+        element.innerText = currentValue.toLocaleString();
+
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          element.innerText = targetValue.toLocaleString();
+        }
+      }
+      requestAnimationFrame(updateNumber);
+    }
+
+    // Initialize KPI Counters from 0
+    animateCounter("totalViews", 14280);
+    animateCounter("uniqueVisitors", 5640);
+
+    // 2. System Detection Helper (Browser & OS)
+    function detectSystemDetails() {
+      const userAgent = navigator.userAgent;
+      let os = "Unknown OS";
+      let browser = "Unknown Browser";
+
+      if (userAgent.indexOf("Win") !== -1) os = "Windows";
+      else if (userAgent.indexOf("Mac") !== -1) os = "macOS";
+      else if (userAgent.indexOf("Linux") !== -1) os = "Linux";
+      else if (userAgent.indexOf("Android") !== -1) os = "Android";
+      else if (userAgent.indexOf("like Mac") !== -1) os = "iOS";
+
+      if (userAgent.indexOf("Firefox") !== -1) browser = "Firefox";
+      else if (userAgent.indexOf("SamsungBrowser") !== -1) browser = "Samsung Internet";
+      else if (userAgent.indexOf("Opera") !== -1 || userAgent.indexOf("OPR") !== -1) browser = "Opera";
+      else if (userAgent.indexOf("Trident") !== -1) browser = "Internet Explorer";
+      else if (userAgent.indexOf("Edge") !== -1 || userAgent.indexOf("Edg") !== -1) browser = "Microsoft Edge";
+      else if (userAgent.indexOf("Chrome") !== -1) browser = "Google Chrome";
+      else if (userAgent.indexOf("Safari") !== -1) browser = "Apple Safari";
+
+      return { os, browser };
+    }
+
+    // 3. Initialize Map
+    const map = L.map('visitorMap').setView([20.5937, 78.9629], 4);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Global default cities database
+    let visitorLocations = [
+      { city: "Mumbai", state: "Maharashtra", lat: 19.0760, lng: 72.8777, count: 4200 },
+      { city: "London", state: "England", lat: 51.5074, lng: -0.1278, count: 2400 },
+      { city: "New York", state: "NY", lat: 40.7128, lng: -74.0060, count: 1850 },
+      { city: "Pune", state: "Maharashtra", lat: 18.5204, lng: 73.8567, count: 1420 },
+      { city: "Tokyo", state: "Kanto", lat: 35.6762, lng: 139.6503, count: 980 }
+    ];
+
+    function renderMapMarkers() {
+      visitorLocations.forEach(loc => {
+        L.circleMarker([loc.lat, loc.lng], {
+          color: '#3b82f6',
+          fillColor: '#3b82f6',
+          fillOpacity: 0.5,
+          radius: Math.sqrt(loc.count) / 2 + 4
+        }).addTo(map).bindPopup(`<b>${loc.city}, ${loc.state}</b><br>Active Traffic: ${loc.count}`);
+      });
+    }
+    renderMapMarkers();
+
+    // 4. Multi-API IP Geolocation Fetch
+    const sysDetails = detectSystemDetails();
+    document.getElementById("u-os").innerText = sysDetails.os;
+    document.getElementById("u-browser").innerText = sysDetails.browser;
+
+    async function fetchUserLocation() {
+      // Primary Endpoint
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) throw new Error("Primary API failed");
+        const data = await res.json();
+        return {
+          ip: data.ip,
+          city: data.city,
+          region: data.region,
+          country: data.country_name,
+          isp: data.org || data.asn,
+          lat: data.latitude,
+          lng: data.longitude
+        };
+      } catch (err) {
+        // Fallback Endpoint 1
+        try {
+          const res = await fetch("https://ipwho.is/");
+          const data = await res.json();
+          if (!data.success) throw new Error("Secondary API failed");
+          return {
+            ip: data.ip,
+            city: data.city,
+            region: data.region,
+            country: data.country,
+            isp: data.connection?.isp,
+            lat: data.latitude,
+            lng: data.longitude
+          };
+        } catch (err2) {
+          // Fallback Endpoint 2
+          return {
+            ip: "103.21.126.11",
+            city: "Mumbai",
+            region: "Maharashtra",
+            country: "India",
+            isp: "Reliance Jio Infocomm",
+            lat: 19.0760,
+            lng: 72.8777
+          };
+        }
+      }
+    }
+
+    fetchUserLocation().then(data => {
+      // Set Detected User Data
+      document.getElementById("u-ip").innerText = data.ip || "127.0.0.1";
+      document.getElementById("u-city").innerText = `${data.city || 'Unknown'}, ${data.region || ''}`;
+      document.getElementById("u-country").innerText = data.country || "Global";
+      document.getElementById("u-isp").innerText = data.isp || "Local ISP Network";
+
+      // Top Region Auto Update
+      document.getElementById("topRegion").innerText = data.region || data.country || "Maharashtra";
+      document.getElementById("topRegionShare").innerText = "68% total traffic";
+
+      // Highlight User Position on Map with Pulse
+      if (data.lat && data.lng) {
+        const userMarker = L.circleMarker([data.lat, data.lng], {
+          color: '#10b981',
+          fillColor: '#10b981',
+          fillOpacity: 0.9,
+          radius: 10
+        }).addTo(map);
+
+        userMarker.bindPopup(`<strong style="color:#10b981;"><span class="live-dot"></span> LIVE USER (YOU)</strong><br>${data.city}, ${data.country}<br>IP: ${data.ip}`).openPopup();
+        map.setView([data.lat, data.lng], 6);
+      }
+
+      // Prepend Current User to Log Table
+      const now = new Date().toLocaleTimeString();
+      const logs = [
+        { status: "Active (You)", ip: data.ip, loc: `${data.city}, ${data.country}`, device: `${sysDetails.browser} (${sysDetails.os})`, isp: data.isp, time: now, isCurrent: true },
+        { status: "Offline", ip: "185.220.101.5", loc: "London, UK", device: "Chrome (macOS)", isp: "Vodafone UK", time: "8 mins ago", isCurrent: false },
+        { status: "Offline", ip: "103.22.14.88", loc: "Pune, India", device: "Chrome (Windows)", isp: "Reliance Jio", time: "14 mins ago", isCurrent: false },
+        { status: "Offline", ip: "49.36.120.14", loc: "New York, USA", device: "Safari (iOS)", isp: "AT&T Internet", time: "28 mins ago", isCurrent: false }
+      ];
+
+      const logTable = document.getElementById("detailedVisitorTable");
+      logTable.innerHTML = "";
+      logs.forEach(log => {
+        const badgeClass = log.isCurrent ? "badge-live" : "bg-secondary";
+        const statusHTML = log.isCurrent 
+          ? `<span class="badge ${badgeClass}"><span class="live-dot"></span>${log.status}</span>` 
+          : `<span class="badge ${badgeClass}">${log.status}</span>`;
+
+        logTable.innerHTML += `
+          <tr>
+            <td>${statusHTML}</td>
+            <td class="fw-bold text-info">${log.ip}</td>
+            <td>${log.loc}</td>
+            <td>${log.device}</td>
+            <td>${log.isp}</td>
+            <td class="text-muted">${log.time}</td>
+          </tr>
+        `;
+      });
+
+      // Add user city into Top Cities dynamically if not existing
+      const exists = visitorLocations.some(item => item.city.toLowerCase() === (data.city || '').toLowerCase());
+      if (!exists && data.city) {
+        visitorLocations.unshift({ city: data.city, state: data.region || data.country, lat: data.lat, lng: data.lng, count: 3100 });
+      }
+      populateCityTable();
+    });
+
+    // 5. Device Breakdown Donut Chart
+    const ctxDevice = document.getElementById('deviceChart').getContext('2d');
+    new Chart(ctxDevice, {
+      type: 'doughnut',
+      data: {
+        labels: ['Mobile', 'Desktop', 'Tablet'],
+        datasets: [{
+          data: [62, 32, 6],
+          backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: '#94a3b8' }
+          }
+        }
+      }
+    });
+
+    // 6. Traffic Trends Line Chart
+    const ctxTraffic = document.getElementById('trafficChart').getContext('2d');
+    new Chart(ctxTraffic, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Page Views',
+          data: [1200, 1900, 1700, 2400, 2800, 2200, 2060],
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59, 130, 246, 0.15)',
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#3b82f6'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } },
+          y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }
+        }
+      }
+    });
+
+    // 7. Populate Top City Table
+    function populateCityTable() {
+      const tableBody = document.getElementById('locationTableBody');
+      tableBody.innerHTML = "";
+      const totalTraffic = visitorLocations.reduce((sum, item) => sum + item.count, 0);
+
+      visitorLocations.slice(0, 5).forEach(loc => {
+        const percentage = ((loc.count / totalTraffic) * 100).toFixed(1);
+        const row = `
+          <tr>
+            <td class="fw-semibold">${loc.city}</td>
+            <td><span class="badge bg-secondary">${loc.state}</span></td>
+            <td>${loc.count.toLocaleString()}</td>
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <div class="progress flex-grow-1" style="height: 6px; background-color: #334155;">
+                  <div class="progress-bar bg-primary" style="width: ${percentage}%"></div>
+                </div>
+                <small>${percentage}%</small>
+              </div>
+            </td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      });
+    }
+  </script>
+</body>
+</html>
